@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-06T13:43:18.004Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="BO4aGwjNIA4xymxkugNK" version="21.3.7" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-06T14:13:40.640Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="t3Xg3Es_InQSh4YnWimC" version="21.3.7" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="1417" dy="1216" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -39,49 +39,17 @@
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-28" value="Fills the garden&#39;s dimensions (length-width)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
           <mxGeometry x="383" y="29" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="nP0fV60kE_Xsv_RjXeuA-32" value="choose the main vegetable of the compartment" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
+        <mxCell id="2SLstcdZzmgSpFHANEhk-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="nP0fV60kE_Xsv_RjXeuA-32" target="2SLstcdZzmgSpFHANEhk-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nP0fV60kE_Xsv_RjXeuA-32" value="choose n favourite vegetables" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
           <mxGeometry x="867" y="113" width="152" height="53" as="geometry" />
         </mxCell>
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-59" value="is happy" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
           <mxGeometry x="1747" y="36" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="2SLstcdZzmgSpFHANEhk-42" target="2SLstcdZzmgSpFHANEhk-49">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-42" value="choose associated vegetables in the list" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-20">
-          <mxGeometry x="1033" y="111" width="140" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="2SLstcdZzmgSpFHANEhk-45" target="nP0fV60kE_Xsv_RjXeuA-32">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1602" y="22" />
-              <mxPoint x="943" y="22" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-45" value="goes to next compartment" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-20">
-          <mxGeometry x="1549" y="60" width="98" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-50" value="yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.597;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="2SLstcdZzmgSpFHANEhk-49" target="2SLstcdZzmgSpFHANEhk-45">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.02;entryY=0.631;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="2SLstcdZzmgSpFHANEhk-49" target="2SLstcdZzmgSpFHANEhk-52">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1411" y="196" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-54" value="no" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2SLstcdZzmgSpFHANEhk-53">
-          <mxGeometry x="-0.1046" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-49" value="is there a remaining compartment ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-20">
-          <mxGeometry x="1344" y="33" width="133" height="124" as="geometry" />
-        </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-52" value="validates&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-20">
-          <mxGeometry x="1552" y="158" width="98" height="60" as="geometry" />
+          <mxGeometry x="1078" y="110" width="98" height="60" as="geometry" />
         </mxCell>
         <mxCell id="dNxyNK7c78bLwvsdeMH5-21" value="Client" style="swimlane;html=1;startSize=20;horizontal=0;" parent="dNxyNK7c78bLwvsdeMH5-19" vertex="1">
           <mxGeometry x="20" y="254" width="1931" height="120" as="geometry" />
@@ -104,28 +72,6 @@
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="2SLstcdZzmgSpFHANEhk-18" target="nP0fV60kE_Xsv_RjXeuA-42">
           <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="nP0fV60kE_Xsv_RjXeuA-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="dNxyNK7c78bLwvsdeMH5-19" source="nP0fV60kE_Xsv_RjXeuA-32" target="2SLstcdZzmgSpFHANEhk-20" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1127" y="49" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="2SLstcdZzmgSpFHANEhk-20" target="2SLstcdZzmgSpFHANEhk-42">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1122" y="571" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="2SLstcdZzmgSpFHANEhk-52" target="2SLstcdZzmgSpFHANEhk-58">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1506.5" y="387" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="1626" y="315" />
-              <mxPoint x="1498" y="315" />
-              <mxPoint x="1498" y="412" />
-            </Array>
-          </mxGeometry>
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="nP0fV60kE_Xsv_RjXeuA-28">
           <mxGeometry relative="1" as="geometry">
@@ -185,10 +131,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-18" value="Suggest the list of vegetables" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
-          <mxGeometry x="784" y="172" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="2SLstcdZzmgSpFHANEhk-20" value="sets the list of associated vegetables" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
-          <mxGeometry x="943" y="153" width="99" height="88" as="geometry" />
+          <mxGeometry x="779" y="123" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-58" value="processes the data" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
           <mxGeometry x="1419" y="39" width="120" height="60" as="geometry" />
@@ -207,6 +150,15 @@
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-71" value="new compartments created and added to the garden" style="ellipse;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
           <mxGeometry x="426" y="153" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2SLstcdZzmgSpFHANEhk-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-22" source="2SLstcdZzmgSpFHANEhk-73" target="2SLstcdZzmgSpFHANEhk-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2SLstcdZzmgSpFHANEhk-73" value="determine the associated vegetables for each chosen vegetable" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
+          <mxGeometry x="1216" y="39" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2SLstcdZzmgSpFHANEhk-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="2SLstcdZzmgSpFHANEhk-52" target="2SLstcdZzmgSpFHANEhk-73">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="nP0fV60kE_Xsv_RjXeuA-1" target="nP0fV60kE_Xsv_RjXeuA-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
