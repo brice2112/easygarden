@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-06T12:32:34.607Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="u-imPI79dNNkmtHPmyXJ" version="21.3.7" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-06T12:49:30.640Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="FABi4YhCYjyaRqYFQ4Lc" version="21.3.7" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
-    <mxGraphModel dx="1346" dy="1175" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1122" dy="1046" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -37,13 +37,8 @@
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-28" value="Fills the garden&#39;s dimensions (length-width)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
           <mxGeometry x="383" y="29" width="80" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="nP0fV60kE_Xsv_RjXeuA-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.603;entryDx=0;entryDy=0;entryPerimeter=0;" parent="dNxyNK7c78bLwvsdeMH5-20" source="nP0fV60kE_Xsv_RjXeuA-32" target="2SLstcdZzmgSpFHANEhk-1" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1107" y="49" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="nP0fV60kE_Xsv_RjXeuA-32" value="Choose the vegetables suggested by the app" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
-          <mxGeometry x="905" y="22" width="80" height="60" as="geometry" />
+        <mxCell id="nP0fV60kE_Xsv_RjXeuA-32" value="choose the main vegetable of the compartment" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
+          <mxGeometry x="758" y="25" width="152" height="53" as="geometry" />
         </mxCell>
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-59" value="is happy" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-20" vertex="1">
           <mxGeometry x="1719" y="22" width="80" height="60" as="geometry" />
@@ -55,7 +50,7 @@
           <mxGeometry x="20" y="120" width="1931" height="120" as="geometry" />
         </mxCell>
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-42" value="Displays the list" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-21" vertex="1">
-          <mxGeometry x="911" y="21" width="80" height="60" as="geometry" />
+          <mxGeometry x="804" y="22" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-55" value="Displays the garden map and shopping list" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" parent="dNxyNK7c78bLwvsdeMH5-21" vertex="1">
           <mxGeometry x="1720" y="21" width="80" height="60" as="geometry" />
@@ -76,6 +71,14 @@
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="nP0fV60kE_Xsv_RjXeuA-28" target="2SLstcdZzmgSpFHANEhk-12">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2SLstcdZzmgSpFHANEhk-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" source="2SLstcdZzmgSpFHANEhk-18" target="nP0fV60kE_Xsv_RjXeuA-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nP0fV60kE_Xsv_RjXeuA-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="dNxyNK7c78bLwvsdeMH5-19" source="nP0fV60kE_Xsv_RjXeuA-32" target="2SLstcdZzmgSpFHANEhk-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1127" y="49" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="dNxyNK7c78bLwvsdeMH5-22" value="Server" style="swimlane;html=1;startSize=20;horizontal=0;" parent="dNxyNK7c78bLwvsdeMH5-19" vertex="1">
           <mxGeometry x="20" y="240" width="1931" height="367" as="geometry" />
@@ -138,6 +141,9 @@
         </mxCell>
         <mxCell id="2SLstcdZzmgSpFHANEhk-18" value="Suggest the list of vegetables" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
           <mxGeometry x="784" y="172" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2SLstcdZzmgSpFHANEhk-20" value="sets the list of associated vegetables" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-22">
+          <mxGeometry x="915" y="169" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="nP0fV60kE_Xsv_RjXeuA-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="nP0fV60kE_Xsv_RjXeuA-1" target="nP0fV60kE_Xsv_RjXeuA-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
