@@ -4,4 +4,7 @@ class Vegetable < ApplicationRecord
   def synergies
     Synergy.where("first_vegetable_id = :id OR second_vegetable_id = :id", id: id)
   end
+
+  def vegetables
+  end
 end
