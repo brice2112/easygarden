@@ -17,6 +17,7 @@ class GardensController < ApplicationController
   def garden_created
     gps_coords = get_gps_coord(@garden.location)
     mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
+    @garden.update(mean_temperature: mean_temp)
     @suitable_vegetables = get_suitable_vegetables(mean_temp)
   end
 
