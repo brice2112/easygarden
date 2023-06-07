@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :gardens, only: [:index, :show, :new, :create, :destroy] do
-    get :vegetables_implant
+    get :compartments
   end
+
+  get '/gardens/:id/garden_created', to: 'gardens#garden_created', as: 'garden_created'
 
   resources :vegetables, only: [:show]
 end

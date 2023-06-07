@@ -1,20 +1,6 @@
-<style>
-  .homepimp h1, h2, p {
-    color: #5AC698;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-  }
-</style>
-
-
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2017/03/31/07/25/pumpkin-2190584_1280.jpg);">
-  <div class="homepimp">
-  <h1 style="homepimp">Easy Garden</h1>
-  <h2><strong>Optimiser son jardin sans se fatiguer</strong></h2>
-  <p>rentre ton adresse et on fait le reste</p>
+<div class="container">
+  <h1>Easy Garden</h1>
+  <p>Welcome to EasyGarden!</p>
+  <%=link_to "Log Out", destroy_user_session_path, class: "btn btn-primary", data: {turbo_method: :delete}%>
 </div>
-   <div class="myButton">
-   <%= link_to "Nouveau jardin", new_garden_path %>
-</div>
-<%= render "shared/navbar" %>
+

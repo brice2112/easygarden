@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h1 class="fw-bold"><%= @garden.name %></h1>
+  <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length*@garden.width %> square meters</h3>
+
+  <p>You have <%= @garden.compartments.count %> compartments available</p>
+
+  <pre class="fs-6">Here's the list of what you can plant.&#10;&#13;Please select your <%= @garden.compartments.count %> favourite vegetables in the list.</pre>
+  <ul>
+    <% @suitable_vegetables.each do |vegetable| %>
+      <li><%= vegetable.name %></li>
+    <% end %>
+  </ul>
+
+</div>
