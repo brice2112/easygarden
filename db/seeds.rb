@@ -15,9 +15,9 @@ User.destroy_all
 
 puts "Creating users..."
 
-User.create!(
+user1 = User.create!(
   email: "jean-francois.couillard@gmail.com",
-  password: "jcouille++",
+  password: "jcouille++"
 )
 
 User.create!(
@@ -55,12 +55,12 @@ User.create!(
 
 Garden.destroy_all
 
-garden = Garden.new(
-  name = "BeautifulGarden",
-  location = "14 rue de l'abbé Jean Glatz Bois-Colombes",
-  length = 6,
-  width = 3,
-  user = User.find_by(email: "jmtrick@gmail.com")
+Garden.create!(
+  name: "BeautifulGarden",
+  location: "14 rue de l'abbé Jean Glatz Bois-Colombes",
+  length: 6,
+  width: 3,
+  user: user1
 )
 
 garden = Garden.new(
@@ -83,17 +83,17 @@ garden = Garden.new(
 
 Compartement.destroy_all
 
-compartement = Compartement.new(
+compartment = Compartement.new(
   width = 1,
   garden = Garden.find_by(location: "14 rue de l'abbé Jean Glatz Bois-Colombes"),
 )
 
-compartement = Compartement.new(
+compartment = Compartement.new(
   width = 1,
   garden = Garden.find_by(location: "14 rue de l'abbé Jean Glatz Bois-Colombes"),
 )
 
-compartement = Compartement.new(
+compartment = Compartement.new(
   width = 1,
   garden = Garden.find_by(location: "14 rue de l'abbé Jean Glatz Bois-Colombes"),
 )
