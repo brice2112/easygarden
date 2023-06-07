@@ -6,6 +6,5 @@ class Vegetable < ApplicationRecord
   end
 
   def vegetables
-    
   end
 end
