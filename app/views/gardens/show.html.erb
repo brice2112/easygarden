@@ -1,6 +1,8 @@
-<h1><%= @garden.name %></h1>
+<div class="container">
 
-<h2><%= @garden.length %></h2>
-<h2><%= @garden.width %></h2>
+  <h1 class="fs-1"><%= @garden.name %></h1>
+  <p>Dimensions: <%= @garden.length %>m x <%= @garden.width %>m </p>
+  <p>Area: <%= @garden.length*@garden.width %>m²</p>
+  <p>location: <%= @garden.location %></p>
 
-<h3>Area : <%= @garden.length*@garden.width %> square meters</h3>
+</div>
