@@ -3,9 +3,9 @@ class CreateGardens < ActiveRecord::Migration[7.0]
     create_table :gardens do |t|
       t.string :name
       t.string :location
-      t.string :length
-      t.string :width
-      t.string :user_id
+      t.float :length
+      t.float :width
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

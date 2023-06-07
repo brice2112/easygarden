@@ -1,8 +1,8 @@
 class CreateCompartments < ActiveRecord::Migration[7.0]
   def change
     create_table :compartments do |t|
-      t.string :width
-      t.string :garden_id
+      t.float :width
+      t.references :garden, null: false, foreign_key: true
 
       t.timestamps
     end
