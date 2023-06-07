@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Devise gem for authentication
 gem "devise"
 
+# Geocoder for translating address into GPS coordinates
+gem "geocoder"
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
