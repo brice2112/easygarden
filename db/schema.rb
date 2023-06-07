@@ -10,25 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_163047) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_090215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "compartments", force: :cascade do |t|
-    t.string "width"
-    t.string "garden_id"
+    t.float "width"
+    t.bigint "garden_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["garden_id"], name: "index_compartments_on_garden_id"
   end
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.string "length"
-    t.string "width"
-    t.string "user_id"
+    t.float "length"
+    t.float "width"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_gardens_on_user_id"
+  end
+
+  create_table "implantations", force: :cascade do |t|
+    t.bigint "compartment_id", null: false
+    t.bigint "vegetable_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["compartment_id"], name: "index_implantations_on_compartment_id"
+    t.index ["vegetable_id"], name: "index_implantations_on_vegetable_id"
   end
 
   create_table "synergies", force: :cascade do |t|
@@ -63,4 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_163047) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "compartments", "gardens"
+  add_foreign_key "gardens", "users"
+  add_foreign_key "implantations", "compartments"
+  add_foreign_key "implantations", "vegetables"
 end
