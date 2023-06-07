@@ -3,7 +3,7 @@ class CreateVegetables < ActiveRecord::Migration[7.0]
     create_table :vegetables do |t|
       t.string :name
       t.string :variety
-      t.string :family
+      t.float :footprint
       t.float :min_temp
       t.float :max_temp
       t.float :atmospheric_humidity

@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_090215) do
   create_table "vegetables", force: :cascade do |t|
     t.string "name"
     t.string "variety"
-    t.string "family"
+    t.float "footprint"
     t.float "min_temp"
     t.float "max_temp"
     t.float "atmospheric_humidity"
