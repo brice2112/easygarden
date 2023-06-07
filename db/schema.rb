@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_144040) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_163047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "compartments", force: :cascade do |t|
+    t.string "width"
+    t.string "garden_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gardens", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "length"
+    t.string "width"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "synergies", force: :cascade do |t|
+    t.integer "first_vegetable_id"
+    t.integer "second_vegetable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +48,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_144040) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vegetables", force: :cascade do |t|
+    t.string "name"
+    t.string "variety"
+    t.string "family"
+    t.float "min_temp"
+    t.float "max_temp"
+    t.float "atmospheric_humidity"
+    t.float "minimum_precipitation"
+    t.float "maximum_precipitation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
