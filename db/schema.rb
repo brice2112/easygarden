@@ -15,22 +15,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_090215) do
   enable_extension "plpgsql"
 
   create_table "compartments", force: :cascade do |t|
-    t.float "width"
-    t.bigint "garden_id", null: false
+    t.string "width"
+    t.string "garden_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["garden_id"], name: "index_compartments_on_garden_id"
   end
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.float "length"
-    t.float "width"
-    t.bigint "user_id", null: false
+    t.string "length"
+    t.string "width"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_gardens_on_user_id"
   end
 
   create_table "implantations", force: :cascade do |t|
@@ -65,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_090215) do
   create_table "vegetables", force: :cascade do |t|
     t.string "name"
     t.string "variety"
-    t.float "footprint"
+    t.string "family"
     t.float "min_temp"
     t.float "max_temp"
     t.float "atmospheric_humidity"
@@ -75,8 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_090215) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "compartments", "gardens"
-  add_foreign_key "gardens", "users"
   add_foreign_key "implantations", "compartments"
   add_foreign_key "implantations", "vegetables"
 end

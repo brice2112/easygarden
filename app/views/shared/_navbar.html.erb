@@ -1,0 +1,38 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%# <%= image_tag "logo_vache.jpg" %> <i class="fa-solid fa-cow"></i>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <p class="navbar-title" >EASY GARDEN</p>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+
+           <% if current_user %>
+
+            <%= link_to image_tag('photo_banner.jpg', class:'avatar'), profile_path %>
+              <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Home
+             </button>
+             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>
+              <%= link_to "Mes jardin", profile_path, class: "dropdown-item" %>
+              <%=link_to "See all vegetables", vegetables_path, class: "dropdown-item"%>
+              <%=link_to "Log Out", destroy_user_session_path, class: "dropdown-item"%>
+            </div>
+          <%else%>
+            <%=link_to "Log In", new_user_session_path, class: "nav-link"%>
+          <!--/li-->
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
