@@ -1,0 +1,19 @@
+.navbar-top {
+  justify-content: center;
+  background: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+
+}
+
+.navbar-top .navbar-collapse {
+  flex-grow: 0;
+  position: top;
+}
+
+.navbar-top .navbar-brand img {
+  width: 40px;
+  justify-content: center;
+}
