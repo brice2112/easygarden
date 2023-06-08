@@ -1,7 +1,10 @@
+<% available_veggie = [] %>
+
 <div class="container">
 
   <h1 class="fw-bold"><%= @garden.name %></h1>
   <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length*@garden.width %> square meters</h3>
+  <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
 
   <p>You have <%= @garden.compartments.count %> compartments available</p>
 
@@ -9,7 +12,22 @@
   <ul>
     <% @suitable_vegetables.each do |vegetable| %>
       <li><%= vegetable.name %></li>
+      <% available_veggie << vegetable.name%>
     <% end %>
   </ul>
+
+<%#  ######BELOW IS THE FORM TO SELECT THE VEGGIES#####
+     -- Keys are in the string format
+     -- Can't figure out how to make them symbols ?    %>
+
+  <%= form_with url: implant_path(@garden) do |form| %>
+    <% i = 0 %>
+    <% while i < @garden.compartments.count %>
+      <% veggie = "vegetable#{i + 1}" %>
+      <%= form.select veggie, available_veggie %>
+      <% i += 1 %>
+    <% end %>
+    <%= form.submit "Next" %>
+  <% end %>
 
 </div>
