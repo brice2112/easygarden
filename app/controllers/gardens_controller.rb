@@ -53,8 +53,11 @@ class GardensController < ApplicationController
   end
 
   def implant
-    @toto = (params)
-    puts "Hello ============================="
+    @hash = (params)
+    @choices = @hash.select { |key, value| key.to_s.match("vegetable") }
+    @array_of_veggie = @choices.values
+    
+
   end
 
   def destroy
