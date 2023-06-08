@@ -3,7 +3,8 @@ require 'json'
 require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
-  before_action :set_garden, only: [:show, :destroy, :garden_created]
+  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :set_vegetables_for_weather]
+  before_action :set_vegetables_for_weather, only: [:implant]
   COMP_W = 1
   IMP_L = 1
   ALLEY_W = 0.5
@@ -19,7 +20,7 @@ class GardensController < ApplicationController
     gps_coords = get_gps_coord(@garden.location)
     mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
     @garden.update(mean_temperature: mean_temp)
-    @suitable_vegetables = get_suitable_vegetables(mean_temp)
+    @suitable_vegetables = set_vegetables_for_weather
   end
 
   def new
@@ -57,8 +58,7 @@ class GardensController < ApplicationController
     @hash = (params)
     @choices = @hash.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
-    @garden = Garden.find(params[:id])
-    @result = get_synergies(@array_of_veggie, @garden.length)
+    @result = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
     raise
   end
 
@@ -120,13 +120,14 @@ class GardensController < ApplicationController
     result
   end
 
-  def get_suitable_vegetables(mean_temp)
-    suitable_vegetables = []
+  def set_vegetables_for_weather
+    mean_temp = @garden.mean_temperature
+    @vegetables_for_weather = []
     Vegetable.all.each do |vegetable|
       if mean_temp > vegetable.min_temp && mean_temp < vegetable.max_temp
-        suitable_vegetables.append(vegetable)
+        @vegetables_for_weather.append(vegetable)
       end
     end
-    return suitable_vegetables
+    @vegetables_for_weather
   end
 end

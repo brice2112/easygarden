@@ -284,7 +284,7 @@ Synergy.create!(
   second_vegetable: Vegetable.find_by(name: "Oignon")
 )
 
-#tomate/basilic/persin
+#tomate/basilic/persil
 Synergy.create!(
   first_vegetable: Vegetable.find_by(name: "Tomate"),
   second_vegetable: Vegetable.find_by(name: "Basilic")
