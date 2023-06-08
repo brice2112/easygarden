@@ -7,7 +7,7 @@ def get_synergies(chosen_vegetables, garden_length)
     implantation[n][0] = vegetable
     i = 0
     while (i < number_of_implants - 1) do
-      suitable_vegetables = get_suitable_vegetables(vegetable)
+      suitable_vegetables = get_list_of_synergies(vegetable)
       implantation[n][i+1] = suitable_vegetables[i]
       i += 1
     end
@@ -20,7 +20,7 @@ def get_number_of_implants(garden_length)
   garden_length > min_length ? 3 : 2
 end
 
-def get_suitable_vegetables(vegetable_name)
+def get_list_of_synergies(vegetable_name)
   result = []
   vegetable_id = Vegetable.find_by(name: vegetable_name)
   return if vegetable_id.nil?

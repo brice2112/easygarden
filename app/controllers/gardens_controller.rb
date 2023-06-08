@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created]
@@ -53,11 +54,12 @@ class GardensController < ApplicationController
   end
 
   def implant
+    # raise
     @hash = (params)
     @choices = @hash.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
-    
-
+    @garden = Garden.find(params[:id])
+    @result = get_synergies(@array_of_veggie, @garden.length)
   end
 
   def destroy
