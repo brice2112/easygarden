@@ -12,5 +12,10 @@
       <li><%= vegetable.name %></li>
     <% end %>
   </ul>
+  
+  <%= form_with url: implant_path(@garden) do |form| %>
+    <%= form.text_field "toto" %>
+    <%= form.submit "Next" %>
+  <% end %>
 
 </div>
