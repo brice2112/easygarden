@@ -53,6 +53,7 @@ class GardensController < ApplicationController
   end
 
   def implant
+    @toto = (params)
     puts "Hello ============================="
   end
 
