@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get :compartments
   end
 
+  post '/gardens/:id/implant', to: 'gardens#implant', as: 'implant'
+
   get '/gardens/:id/garden_created', to: 'gardens#garden_created', as: 'garden_created'
 
   resources :vegetables, only: [:show]

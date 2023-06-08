@@ -53,6 +53,10 @@ class GardensController < ApplicationController
     end
   end
 
+  def implant
+    puts "Hello ============================="
+  end
+
   def destroy
   end
 
