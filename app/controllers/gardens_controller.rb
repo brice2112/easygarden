@@ -47,7 +47,6 @@ class GardensController < ApplicationController
 
     if @garden.save!
       redirect_to garden_created_path(@garden)
-      # raise
     else
       render new, status: :unprocessable_entity
     end
@@ -60,6 +59,7 @@ class GardensController < ApplicationController
     @array_of_veggie = @choices.values
     @garden = Garden.find(params[:id])
     @result = get_synergies(@array_of_veggie, @garden.length)
+    raise
   end
 
   def destroy
