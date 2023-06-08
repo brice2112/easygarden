@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "gardens#index"
 
   resources :gardens, only: [:index, :show, :new, :create, :destroy] do
     get :compartments

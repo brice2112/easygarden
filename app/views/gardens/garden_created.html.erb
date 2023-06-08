@@ -2,6 +2,7 @@
 
   <h1 class="fw-bold"><%= @garden.name %></h1>
   <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length*@garden.width %> square meters</h3>
+  <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
 
   <p>You have <%= @garden.compartments.count %> compartments available</p>
 
