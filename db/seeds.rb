@@ -59,14 +59,14 @@ Vegetable.destroy_all
 puts "Creating Vegetables..."
 
 Vegetable.create!(
-  name: "Carrote",
+  name: "Carotte",
   variety: "",
   min_temp: 7,
   max_temp: 30,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.05,
+  footprint: 0.004
 )
 
 Vegetable.create!(
@@ -77,121 +77,231 @@ Vegetable.create!(
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.35,
+  footprint: 0.35
 )
 
 Vegetable.create!(
-  name: "ognion",
-  variety: "Amaryllidaceae ou Liliacées",
-  min_temp: 10,
-  max_temp: 30,
-  atmospheric_humidity: 50,
-  minimum_precipitation: '',
-  maximum_precipitation: '',
-  footprint: 0.1,
-)
-
-Vegetable.create!(
-  name: "chou",
+  name: "Chou",
   variety: "brassicacées",
   min_temp: 7,
   max_temp: 32,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.4,
+  footprint: 0.4
 )
 
 Vegetable.create!(
-  name: "brocoli",
+  name: "Brocoli",
   variety: "Brassicaceae",
   min_temp: 7,
   max_temp: 32,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.4,
+  footprint: 0.4
 )
 
 
 Vegetable.create!(
-  name: "chou-fleur",
+  name: "Chou-fleur",
   variety: "",
   min_temp: 7,
   max_temp: 32,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.4,
+  footprint: 0.4
 )
 
 Vegetable.create!(
-  name: "epinard",
+  name: "Epinard",
   variety: "Chenopodiaceae",
   min_temp: 7,
   max_temp: 22,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.1,
+  footprint: 0.1
 )
 
 Vegetable.create!(
-  name: "laitue",
+  name: "Laitue",
   variety: "Asteraceae",
   min_temp: 5,
   max_temp: 30,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.15,
+  footprint: 0.15
 )
 
 Vegetable.create!(
-  name: "petit pois",
+  name: "Petit pois",
   variety: "Fabaceae",
   min_temp: 5,
   max_temp: 30,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.05,
+  footprint: 0.05
 )
 
 Vegetable.create!(
-  name: "haricot vert",
+  name: "Haricot vert",
   variety: "Fabacées",
   min_temp: 16,
   max_temp: 34,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.1,
+  footprint: 0.1
 )
 
 Vegetable.create!(
-  name: "poivron",
+  name: "Poivron",
   variety: "Capsicum annuum",
   min_temp: 18,
   max_temp: 26,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.3,
+  footprint: 0.3
 )
 
 Vegetable.create!(
-  name: "courgette",
+  name: "Courgette",
   variety: "Cucurbitaceae",
   min_temp: 21,
   max_temp: 40,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.9,
+  footprint: 0.9
+)
+
+Vegetable.create!(
+  name: "Maïs",
+  variety: "Cucurbitaceae",
+  min_temp: 12,
+  max_temp: 28,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.12
+)
+
+Vegetable.create!(
+  name: "Tomate",
+  variety: "Solanaceae",
+  min_temp: 12,
+  max_temp: 37,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.15
+)
+
+Vegetable.create!(
+  name: "Persil",
+  variety: "Apiaceae",
+  min_temp: 7,
+  max_temp: 27,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.05
+)
+
+Vegetable.create!(
+  name: "Basilic",
+  variety: "Lamiaceae",
+  min_temp: 11,
+  max_temp: 32,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.03
+)
+
+Vegetable.create!(
+  name: "Oignon",
+  variety: "Liliaceae",
+  min_temp: 8,
+  max_temp: 25,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.005
+)
+
+Vegetable.create!(
+  name: "Poireau",
+  variety: "Liliaceae",
+  min_temp: 3,
+  max_temp: 25,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.005
+)
+
+
+########SYNERGIES#############
+Synergy.destroy_all
+
+puts "Creating Synergies..."
+
+# haricot/courgette/mais
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Haricot vert"),
+  second_vegetable: Vegetable.find_by(name: "Courgette")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Maïs"),
+  second_vegetable: Vegetable.find_by(name: "Haricot vert")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Maïs"),
+  second_vegetable: Vegetable.find_by(name: "Courgette")
+)
+
+# carotte/poireau/oignon
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Carotte"),
+  second_vegetable: Vegetable.find_by(name: "Poireau")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Carotte"),
+  second_vegetable: Vegetable.find_by(name: "Oignon")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Poireau"),
+  second_vegetable: Vegetable.find_by(name: "Oignon")
+)
+
+#tomate/basilic/persin
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Tomate"),
+  second_vegetable: Vegetable.find_by(name: "Basilic")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Tomate"),
+  second_vegetable: Vegetable.find_by(name: "Persil")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Basilic"),
+  second_vegetable: Vegetable.find_by(name: "Persil")
 )
 
 ########GARDENS###############
+
 
 Garden.destroy_all
 
@@ -251,17 +361,17 @@ puts "Creating Implantations..."
 Implantation.create!(
   quantity: 6,
   compartment: Compartment.last,
-  vegetable: Vegetable.find_by(name: "Carrote")
+  vegetable: Vegetable.find_by(name: "Carotte")
 )
 
 Implantation.create(
   quantity: 4,
   compartment: Compartment.last,
-  vegetable: Vegetable.find_by(name: "courgette")
+  vegetable: Vegetable.find_by(name: "Courgette")
 )
 
 Implantation.create(
   quantity: 8,
   compartment: Compartment.last,
-  vegetable: Vegetable.find_by(name: "poivron")
+  vegetable: Vegetable.find_by(name: "Poivron")
 )

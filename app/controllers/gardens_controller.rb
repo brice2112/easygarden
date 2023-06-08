@@ -26,7 +26,6 @@ class GardensController < ApplicationController
   end
 
   def create
-
     @garden = Garden.new(garden_params)
     @garden.user = current_user
 
@@ -54,6 +53,7 @@ class GardensController < ApplicationController
   end
 
   def implant
+    @toto = (params)
     puts "Hello ============================="
   end
 
@@ -81,14 +81,14 @@ class GardensController < ApplicationController
   end
 
   def get_gps_coord(address)
-      output = []
-      result = Geocoder.search(address).first
-      if result
-        latitude = result.latitude
-        longitude = result.longitude
-        output = [latitude, longitude]
-      end
-      output
+    output = []
+    result = Geocoder.search(address).first
+    if result
+      latitude = result.latitude
+      longitude = result.longitude
+      output = [latitude, longitude]
+    end
+    output
   end
 
   def get_mean_temp(latitude, longitude)
@@ -107,8 +107,8 @@ class GardensController < ApplicationController
     if data['daily']
       max_temp = data['daily']['temperature_2m_max']
       min_temp = data['daily']['temperature_2m_min']
-      max_mean_temp = max_temp.inject{ |sum, el| sum + el }.to_f / max_temp.size
-      min_mean_temp = min_temp.inject{ |sum, el| sum + el }.to_f / min_temp.size
+      max_mean_temp = max_temp.inject { |sum, el| sum + el }.to_f / max_temp.size
+      min_mean_temp = min_temp.inject { |sum, el| sum + el }.to_f / min_temp.size
       mean_temp = (max_mean_temp + min_mean_temp) / 2
       result = mean_temp.truncate(2)
     end
@@ -119,10 +119,9 @@ class GardensController < ApplicationController
     suitable_vegetables = []
     Vegetable.all.each do |vegetable|
       if mean_temp > vegetable.min_temp && mean_temp < vegetable.max_temp
-          suitable_vegetables.append(vegetable)
+        suitable_vegetables.append(vegetable)
       end
     end
     return suitable_vegetables
   end
-
 end
