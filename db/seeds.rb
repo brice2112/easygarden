@@ -81,7 +81,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "ognion",
+  name: "Ognion",
   variety: "Amaryllidaceae ou Liliacées",
   min_temp: 10,
   max_temp: 30,
@@ -92,7 +92,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "chou",
+  name: "Chou",
   variety: "brassicacées",
   min_temp: 7,
   max_temp: 32,
@@ -103,7 +103,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "brocoli",
+  name: "Brocoli",
   variety: "Brassicaceae",
   min_temp: 7,
   max_temp: 32,
@@ -115,7 +115,7 @@ Vegetable.create!(
 
 
 Vegetable.create!(
-  name: "chou-fleur",
+  name: "Chou-fleur",
   variety: "",
   min_temp: 7,
   max_temp: 32,
@@ -126,7 +126,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "epinard",
+  name: "Epinard",
   variety: "Chenopodiaceae",
   min_temp: 7,
   max_temp: 22,
@@ -137,7 +137,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "laitue",
+  name: "Laitue",
   variety: "Asteraceae",
   min_temp: 5,
   max_temp: 30,
@@ -148,7 +148,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "petit pois",
+  name: "Petit pois",
   variety: "Fabaceae",
   min_temp: 5,
   max_temp: 30,
@@ -159,7 +159,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "haricot vert",
+  name: "Haricot vert",
   variety: "Fabacées",
   min_temp: 16,
   max_temp: 34,
@@ -170,7 +170,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "poivron",
+  name: "Poivron",
   variety: "Capsicum annuum",
   min_temp: 18,
   max_temp: 26,
@@ -181,7 +181,7 @@ Vegetable.create!(
 )
 
 Vegetable.create!(
-  name: "courgette",
+  name: "Courgette",
   variety: "Cucurbitaceae",
   min_temp: 21,
   max_temp: 40,
@@ -191,7 +191,34 @@ Vegetable.create!(
   footprint: 0.9,
 )
 
+Vegetable.create!(
+  name: "Maïs",
+  variety: "Cucurbitaceae",
+  min_temp: 12,
+  max_temp: 28,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 0.4,
+)
+
+########SYNERGIES#############
+Synergy.destroy_all
+
+puts "Creating Synergies..."
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Haricot vert"),
+  second_vegetable: Vegetable.find_by(name: "Courgette")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Maïs"),
+  second_vegetable: Vegetable.find_by(name: "Haricot vert")
+)
+
 ########GARDENS###############
+
 
 Garden.destroy_all
 
