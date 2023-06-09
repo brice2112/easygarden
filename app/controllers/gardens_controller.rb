@@ -3,7 +3,7 @@ require 'json'
 require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
-  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :implant_garden]
+  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
   before_action :set_vegetables_for_weather, only: [:implant]
   COMP_W = 1
   IMP_L = 1
@@ -16,8 +16,6 @@ class GardensController < ApplicationController
   def show
   end
 
-
-
   def new
     @garden = Garden.new
   end
@@ -25,19 +23,12 @@ class GardensController < ApplicationController
   def create
     @garden = Garden.new(garden_params)
     @garden.user = current_user
-
     # Calculate number of compartments
     n = number_of_compartments(@garden.width)
     m = number_of_implantations(@garden.length)
     i = 0
     while (i <= n) do
       @garden.compartments.new
-      # j = 0
-      # while (j <= m) do
-      #   implantation = compartment.implantations.new
-      #   implantation.vegetable = Vegetable.first
-      #   j += 1
-      # end
       i += 1
     end
 
@@ -69,8 +60,18 @@ class GardensController < ApplicationController
   def destroy
   end
 
-  private
+  def validate
+    implantations = params #to define
+    validate_garden(garden, implantations)
+    redirect_to garden_path(@garden)
+  end
 
+################################ PRIVATE METHODS ########################################
+  private
+#########################################################################################
+
+
+####### Garden creation ##########
   def set_garden
     @garden = Garden.find(params[:id])
   end
@@ -84,11 +85,8 @@ class GardensController < ApplicationController
     comp_num.to_i
   end
 
-  def number_of_implantations(garden_length)
-    imp_num = garden_length
-    imp_num.to_i
-  end
 
+####### weather ##########
   def get_gps_coord(address)
     output = []
     result = Geocoder.search(address).first
@@ -147,6 +145,93 @@ class GardensController < ApplicationController
 
 end
 
-def implant_garden(implantation)
+####### Garden implantation ##########
+  def number_of_implantations(garden_length)
+    imp_num = garden_length
+    imp_num.to_i
+  end
+
+  def get_synergies(chosen_vegetables, vegetables_for_weather, garden_length)
+    number_of_implants = get_number_of_implants(garden_length)
+    implantation = []
+    chosen_vegetables.each_with_index do |vegetable, n|
+      implantation[n] = []
+      implantation[n][0] = vegetable
+      i = 0
+      while (i < number_of_implants - 1) do
+        suitable_vegetables = get_list_of_synergies(vegetable, vegetables_for_weather)
+        implantation[n][i + 1] = suitable_vegetables[i]
+        i += 1
+      end
+    end
+    implantation
+  end
+
+  def get_number_of_implants(garden_length)
+    min_length = 3
+    garden_length > min_length ? 3 : 2
+  end
+
+  def get_list_of_synergies(vegetable_name, vegetables_for_weather)
+    result = []
+    vege_for_weather_names = get_vege_names(vegetables_for_weather)
+    vegetable_id = Vegetable.find_by(name: vegetable_name)
+    return if vegetable_id.nil?
+
+    Synergy.for_vegetable(vegetable_id).each do |synergy|
+      first_vege = synergy.first_vegetable.name
+      second_vege = synergy.second_vegetable.name
+      vege = first_vege == vegetable_name ? second_vege : first_vege
+      result.append(vege) if vege_for_weather_names.include?(vege)
+    end
+    result.shuffle
+  end
+
+  def get_vege_names(vegetables)
+    result = []
+    vegetables.each do |vege|
+      result.append(vege.name)
+    end
+    result
+  end
+
+  def validate_garden(garden, implantations)
+    imp_with_qty = assign_quantities(implantations, garden.length, COMP_W)
+    garden.compartments.each_with_index do |comp, c|
+      i = 0
+      until i == imp_with_qty[0].count
+        comp.implantations.new(
+          vegetable: Vegetable.find_by(name: imp_with_qty[c][i][:name]),
+          quantity: imp_with_qty[c][i][:qty]
+        )
+        comp.save
+        i += 1
+      end
+    end
+  end
+
+  def assign_quantities(implantations, garden_length, comp_width)
+    imp_with_qty = []
+    number_of_implants = implantations[0].count
+
+    implantations.each_with_index do |compartment, c|
+      imp_with_qty[c] = []
+      compartment.each_with_index do |vegetable, i|
+        implant_length = garden_length / number_of_implants
+        implant_area = implant_length * comp_width
+        qty = get_quantity(vegetable, implant_area)
+        imp_with_qty[c][i] = { name: vegetable, qty: }
+      end
+    end
+    imp_with_qty
+  end
+
+  def get_quantity(vegetable_name, implant_area)
+    vegetable = Vegetable.find_by(name: vegetable_name)
+    return if vegetable.nil?
+
+    footprint = vegetable.footprint
+    (implant_area / footprint).truncate
+  end
 
 end
