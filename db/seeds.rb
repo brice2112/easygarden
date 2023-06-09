@@ -8,12 +8,15 @@
 
 require "open-uri"
 # require "json"
-User.destroy_all
+Implantation.destroy_all
+Compartment.destroy_all
+Synergy.destroy_all
 Vegetable.destroy_all
-
-######### USERS #########
-
+Garden.destroy_all
 User.destroy_all
+
+puts "Destroy all OK --"
+######### USERS #########
 
 puts "Creating users..."
 
@@ -54,7 +57,6 @@ User.create!(
 
 #################VEGETABLES#####################
 
-Vegetable.destroy_all
 
 puts "Creating Vegetables..."
 
@@ -248,7 +250,6 @@ Vegetable.create!(
 
 
 ########SYNERGIES#############
-Synergy.destroy_all
 
 puts "Creating Synergies..."
 
@@ -303,7 +304,6 @@ Synergy.create!(
 ########GARDENS###############
 
 
-Garden.destroy_all
 
 puts "Creating Gardens..."
 
@@ -333,8 +333,6 @@ Garden.create(
 
 ##########COMPARTEMENTS###########
 
-Compartment.destroy_all
-
 puts "Creating Compartments..."
 
 Compartment.create(
@@ -354,7 +352,6 @@ Compartment.create(
 
 ###########IMPLANTATION############
 
-Implantation.destroy_all
 
 puts "Creating Implantations..."
 
