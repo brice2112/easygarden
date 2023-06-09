@@ -30,7 +30,6 @@ class GardensController < ApplicationController
       @garden.compartments.new
       i += 1
     end
-
     if @garden.save!
       redirect_to garden_created_path(@garden)
     else
@@ -49,7 +48,8 @@ class GardensController < ApplicationController
     @choices = params.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
+    # redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
+    redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
   end
 
   def garden_implanted
@@ -60,7 +60,8 @@ class GardensController < ApplicationController
   end
 
   def validate
-    implantations = params #to define
+    implantations = restructure_implantation_array(params["implantation"], params["counter"])
+    raise
     validate_garden(garden, implantations)
     redirect_to garden_path(@garden)
   end
@@ -139,12 +140,8 @@ class GardensController < ApplicationController
     flat_implant.each_slice(counter.to_i) do |compartment|
       restructured_implantation << compartment
     end
-
     return restructured_implantation
-
   end
-
-
 
 ####### Garden implantation ##########
   def number_of_implantations(garden_length)
@@ -234,5 +231,4 @@ class GardensController < ApplicationController
     footprint = vegetable.footprint
     (implant_area / footprint).truncate
   end
-
 end
