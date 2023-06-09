@@ -7,5 +7,6 @@
   <p>mean temperature: <%= @garden.mean_temperature %></p>
 
 <%# show garden infos ... %>
+<%= cl_image_path @vegetable.photo.key, height: 300, crop: :fill %>
 
 </div>

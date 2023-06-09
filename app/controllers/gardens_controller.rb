@@ -1,6 +1,6 @@
 require 'net/http'
 require 'json'
-require_relative '../helpers/implant'
+
 
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
@@ -14,6 +14,7 @@ class GardensController < ApplicationController
   end
 
   def show
+    @vegetable = Vegetable.first
   end
 
   def new
@@ -234,4 +235,6 @@ end
     (implant_area / footprint).truncate
   end
 
-end
+  def article_params
+    params.require(:article).permit(:title, :body, :photo)
+  end
