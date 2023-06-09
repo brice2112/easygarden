@@ -1,13 +1,14 @@
 
 <div class="container">
 
+<% implantation = params["implantation"] %>
+
   <h1 class="fw-bold"><%= @garden.name %></h1>
 
   <p>your garden's implantation:</p>
 
-  <% @implantation.each do |imp| %>
+  <% implantation.each do |imp| %>
     <p><%= imp[0] %></p>
   <% end %>
-
 
 </div>
