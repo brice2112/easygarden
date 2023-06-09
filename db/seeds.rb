@@ -248,6 +248,50 @@ Vegetable.create!(
   footprint: 0.005
 )
 
+Vegetable.create!(
+  name: "Citron",
+  variety: "",
+  min_temp: 18,
+  max_temp: 42,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 1.8
+)
+
+Vegetable.create!(
+  name: "Avocat",
+  variety: "",
+  min_temp: 23,
+  max_temp: 42,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 1.2
+)
+
+Vegetable.create!(
+  name: "Banane",
+  variety: "",
+  min_temp: 25,
+  max_temp: 45,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 2.5
+)
+
+Vegetable.create!(
+  name: "Mangue",
+  variety: "",
+  min_temp: 29,
+  max_temp: 46,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 2.1
+)
+
 
 ########SYNERGIES#############
 
@@ -300,6 +344,39 @@ Synergy.create!(
   first_vegetable: Vegetable.find_by(name: "Basilic"),
   second_vegetable: Vegetable.find_by(name: "Persil")
 )
+
+#fake-tropical
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Citron"),
+  second_vegetable: Vegetable.find_by(name: "Avocat")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Citron"),
+  second_vegetable: Vegetable.find_by(name: "Banane")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Avocat"),
+  second_vegetable: Vegetable.find_by(name: "Banane")
+)
+
+#fake-brassicasseae
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Chou"),
+  second_vegetable: Vegetable.find_by(name: "Chou-fleur")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Chou"),
+  second_vegetable: Vegetable.find_by(name: "Brocoli")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Chou-fleur"),
+  second_vegetable: Vegetable.find_by(name: "Brocoli")
+)
+
 
 ########GARDENS###############
 
