@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
@@ -133,9 +132,11 @@ class GardensController < ApplicationController
     @vegetables_for_weather
   end
 
+# Regenerate a bi-dimensional array from the flattened one sent through params
   def restructure_implantation_array(implantation, counter)
     restructured_implantation = []
-    implantation.each_slice(counter.to_i) do |compartment|
+    flat_implant = implantation.flatten
+    flat_implant.each_slice(counter.to_i) do |compartment|
       restructured_implantation << compartment
     end
 
@@ -143,7 +144,7 @@ class GardensController < ApplicationController
 
   end
 
-end
+
 
 ####### Garden implantation ##########
   def number_of_implantations(garden_length)
