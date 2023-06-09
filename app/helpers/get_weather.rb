@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 # require 'awesome_print'
 
-def get_weather(latitude, longitude)
+def get_mean_temp(latitude, longitude)
   result = nil
 
   # API endpoint URL
