@@ -4,9 +4,9 @@ require 'json'
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
   before_action :set_vegetables_for_weather, only: [:implant]
-  COMP_W = 1
+  COMP_W = 0.5
   IMP_L = 1
-  ALLEY_W = 0.5
+  ALLEY_W = 0.3
 
   def index
     @gardens = Garden.all
@@ -61,8 +61,7 @@ class GardensController < ApplicationController
 
   def validate
     implantations = restructure_implantation_array(params["implantation"], params["counter"])
-    raise
-    validate_garden(garden, implantations)
+    validate_garden(@garden, implantations)
     redirect_to garden_path(@garden)
   end
 
