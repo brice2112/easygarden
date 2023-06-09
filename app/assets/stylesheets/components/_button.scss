@@ -7,9 +7,9 @@ background-color:#5AC698;
 	cursor:pointer;
 	color:#ffffff;
 	font-family: 'Roboto', sans-serif;
-	font-size:24px;
+	font-size:18px;
   font-weight: bold;
-	padding:16px 31px;
+	padding:12px 31px;
 	text-decoration:none;
   text-align: center;
   margin-top: 20px;
@@ -33,8 +33,8 @@ background-color:#5AC698;
     color:#ffffff;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size:24px;
-    padding:16px 31px;
+    font-size:18px;
+    padding:12px 31px;
     text-decoration:none;
     text-align: center;
     margin-top: 20px;
@@ -59,10 +59,10 @@ background-color:#5AC698;
       font-family: 'Roboto', sans-serif;
       font-weight: bold;
       font-size:16px;
-      padding:16px 2px;
+      padding:12px 2px;
       text-decoration:none;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 30px;
     }
     .myformButtonreset:hover {
       background-color: #00B6A1;
@@ -72,3 +72,29 @@ background-color:#5AC698;
       position:center;
       top:1px;
     }
+
+
+    .myButtondb {
+
+      background-color:#5AC698;
+        border-radius:30px;
+        border:1px solid #00B6A1;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family: 'Roboto', sans-serif;
+        font-size:16px;
+        font-weight: bold;
+        padding:2px 31px;
+        text-decoration:none;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .myButtondb:hover {
+        background-color: #00B6A1;
+        color: black;
+      }
+      .myButtondb:active {
+        position:relative;
+        top:1px;
+      }

@@ -1,9 +1,13 @@
-<div class="container">
 
+
+<div class="container">
+   <div class="row">
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
   <h1 class="fs-1"><%= @garden.name %></h1>
   <p>Dimensions: <%= @garden.length %>m x <%= @garden.width %>m </p>
   <p>Area: <%= @garden.length*@garden.width %>m²</p>
   <p>location: <%= @garden.location %></p>
   <p>mean temperature: <%= @garden.mean_temperature %></p>
-
+  </div>
+  </div>
 </div>
