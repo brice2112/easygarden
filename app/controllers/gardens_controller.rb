@@ -3,7 +3,7 @@ require 'json'
 require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
-  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :set_vegetables_for_weather]
+  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :implant_garden]
   before_action :set_vegetables_for_weather, only: [:implant]
   COMP_W = 1
   IMP_L = 1
@@ -16,12 +16,7 @@ class GardensController < ApplicationController
   def show
   end
 
-  def garden_created
-    gps_coords = get_gps_coord(@garden.location)
-    mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
-    @garden.update(mean_temperature: mean_temp)
-    @suitable_vegetables = set_vegetables_for_weather
-  end
+
 
   def new
     @garden = Garden.new
@@ -53,13 +48,21 @@ class GardensController < ApplicationController
     end
   end
 
+  def garden_created
+    gps_coords = get_gps_coord(@garden.location)
+    mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
+    @garden.update(mean_temperature: mean_temp)
+    @suitable_vegetables = set_vegetables_for_weather
+  end
+
   def implant
-    # raise
-    @hash = (params)
-    @choices = @hash.select { |key, value| key.to_s.match("vegetable") }
+    @choices = params.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
-    @result = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    raise
+    @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
+    redirect_to garden_implanted_path(@garden, implantation: @implantation)
+  end
+
+  def garden_implanted
   end
 
   def destroy
@@ -130,4 +133,8 @@ class GardensController < ApplicationController
     end
     @vegetables_for_weather
   end
+end
+
+def implant_garden(implantation)
+
 end
