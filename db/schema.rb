@@ -10,25 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_125602) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_08_160227) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "compartments", force: :cascade do |t|
-    t.string "width"
-    t.string "garden_id"
+    t.float "width"
+    t.bigint "garden_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["garden_id"], name: "index_compartments_on_garden_id"
   end
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.string "length"
-    t.string "width"
-    t.string "user_id"
+    t.float "length"
+    t.float "width"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "mean_temperature"
+    t.index ["user_id"], name: "index_gardens_on_user_id"
   end
 
   create_table "implantations", force: :cascade do |t|
@@ -63,7 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_125602) do
   create_table "vegetables", force: :cascade do |t|
     t.string "name"
     t.string "variety"
-    t.string "family"
+    t.float "footprint"
     t.float "min_temp"
     t.float "max_temp"
     t.float "atmospheric_humidity"
@@ -73,6 +104,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_125602) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "compartments", "gardens"
+  add_foreign_key "gardens", "users"
   add_foreign_key "implantations", "compartments"
   add_foreign_key "implantations", "vegetables"
 end
