@@ -66,7 +66,7 @@ Vegetable.create!(
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.004
+  footprint: 0.01
 )
 
 Vegetable.create!(
