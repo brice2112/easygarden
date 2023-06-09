@@ -3,7 +3,7 @@ require 'json'
 require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
-  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :implant_garden]
+  before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
   before_action :set_vegetables_for_weather, only: [:implant]
   COMP_W = 1
   IMP_L = 1
@@ -16,8 +16,6 @@ class GardensController < ApplicationController
   def show
   end
 
-
-
   def new
     @garden = Garden.new
   end
@@ -25,19 +23,12 @@ class GardensController < ApplicationController
   def create
     @garden = Garden.new(garden_params)
     @garden.user = current_user
-
     # Calculate number of compartments
     n = number_of_compartments(@garden.width)
     m = number_of_implantations(@garden.length)
     i = 0
     while (i <= n) do
       @garden.compartments.new
-      # j = 0
-      # while (j <= m) do
-      #   implantation = compartment.implantations.new
-      #   implantation.vegetable = Vegetable.first
-      #   j += 1
-      # end
       i += 1
     end
 
@@ -68,8 +59,18 @@ class GardensController < ApplicationController
   def destroy
   end
 
-  private
+  def validate
+    implantations = params #to define
+    validate_garden(garden, implantations)
+    redirect_to garden_path(@garden)
+  end
 
+################################ PRIVATE METHODS ########################################
+  private
+#########################################################################################
+
+
+####### Garden creation ##########
   def set_garden
     @garden = Garden.find(params[:id])
   end
@@ -83,11 +84,8 @@ class GardensController < ApplicationController
     comp_num.to_i
   end
 
-  def number_of_implantations(garden_length)
-    imp_num = garden_length
-    imp_num.to_i
-  end
 
+####### weather ##########
   def get_gps_coord(address)
     output = []
     result = Geocoder.search(address).first
@@ -132,6 +130,13 @@ class GardensController < ApplicationController
       end
     end
     @vegetables_for_weather
+  end
+
+
+####### Garden implantation ##########
+  def number_of_implantations(garden_length)
+    imp_num = garden_length
+    imp_num.to_i
   end
 
   def get_synergies(chosen_vegetables, vegetables_for_weather, garden_length)
