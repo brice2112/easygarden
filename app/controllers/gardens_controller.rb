@@ -58,8 +58,13 @@ class GardensController < ApplicationController
     @hash = (params)
     @choices = @hash.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
-    @result = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    raise
+    @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
+    # raise
+    redirect_to garden_implanted_path(@garden)
+  end
+
+  def garden_implanted
+
   end
 
   def destroy
