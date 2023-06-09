@@ -7,8 +7,18 @@
   <p>mean temperature: <%= @garden.mean_temperature %></p>
 
 <%# show garden infos ... %>
-<p>the first implant :</p>
-<%= @garden.compartments.first.implantations.first.quantity %>
-<%= @garden.compartments.first.implantations.first.vegetable.name %>
+<h2>Your garden's layout :</h2>
 
-</div>
+<ol>
+
+<% @garden.compartments.each_with_index do |comp, c| %>
+  <div class="container mb-3">
+    <li><p>Compartment no <%= c + 1 %></p></li>
+    <ul>
+    <% comp.implantations.each do |imp|  %>
+      <li> <%= imp.vegetable.name %> : <%= imp.quantity %> </li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+</ol>
