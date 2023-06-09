@@ -47,3 +47,28 @@ background-color:#5AC698;
     position:center;
     top:1px;
   }
+
+  .myformButtonreset {
+
+    background-color:#5AC698;
+      border-radius:8px;
+      border:1px solid #00B6A1;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      font-size:16px;
+      padding:16px 2px;
+      text-decoration:none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .myformButtonreset:hover {
+      background-color: #00B6A1;
+      color: black;
+    }
+    .myformButtonreset:active {
+      position:center;
+      top:1px;
+    }
