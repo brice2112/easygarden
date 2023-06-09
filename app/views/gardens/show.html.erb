@@ -7,5 +7,8 @@
   <p>mean temperature: <%= @garden.mean_temperature %></p>
 
 <%# show garden infos ... %>
+<p>the first implant :</p>
+<%= @garden.compartments.first.implantations.first.quantity %>
+<%= @garden.compartments.first.implantations.first.vegetable.name %>
 
 </div>
