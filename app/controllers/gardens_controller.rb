@@ -50,10 +50,11 @@ class GardensController < ApplicationController
     @choices = params.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    redirect_to garden_implanted_path(@garden, implantation: @implantation)
+    redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
   end
 
   def garden_implanted
+    @implantation = restructure_implantation_array(params["implantation"], params["counter"])
   end
 
   def destroy
@@ -132,6 +133,17 @@ class GardensController < ApplicationController
     @vegetables_for_weather
   end
 
+  def restructure_implantation_array(implantation, counter)
+    restructured_implantation = []
+    implantation.each_slice(counter.to_i) do |compartment|
+      restructured_implantation << compartment
+    end
+
+    return restructured_implantation
+
+  end
+
+end
 
 ####### Garden implantation ##########
   def number_of_implantations(garden_length)
