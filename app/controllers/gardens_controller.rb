@@ -48,8 +48,8 @@ class GardensController < ApplicationController
     @choices = params.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    # redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
-    redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
+    redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
+    # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
   end
 
   def garden_implanted
