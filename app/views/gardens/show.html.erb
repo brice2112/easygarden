@@ -7,6 +7,10 @@
   <p>mean temperature: <%= @garden.mean_temperature %></p>
 
 <%# show garden infos ... %>
+
+<div style="width: 50%; height: 100px;" class="text-bg-success p-9">
+<p>Garden map coming soon...</p>
+</div>
 <h2>Your garden's layout :</h2>
 
 <ol>
@@ -16,7 +20,8 @@
     <li><p>Compartment no <%= c + 1 %></p></li>
     <ul>
     <% comp.implantations.each do |imp|  %>
-      <li> <%= imp.vegetable.name %> : <%= imp.quantity %> </li>
+      <li> <%= link_to "#{imp.vegetable.name}", vegetable_path(imp.vegetable.id) %> : <%= imp.quantity %></li>
+
     <% end %>
     </ul>
   </div>
