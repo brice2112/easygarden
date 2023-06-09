@@ -5,6 +5,7 @@
   <ul>
     <li>
       <%= link_to "#{garden.name}", garden_path(garden.id) %>
+      <%= button_to "Delete", garden_path(garden.id), method: :delete, data: { confirm: "Are you sure?" } %>
     </li>
   </ul>
   <% end %>
