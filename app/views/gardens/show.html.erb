@@ -26,7 +26,7 @@
     <li><p>Compartment no <%= c + 1 %></p></li>
     <ul>
     <% comp.implantations.each do |imp|  %>
-      <li> <%= link_to "#{imp.vegetable.name}", vegetable_path(imp.vegetable.id) %> : <%= imp.quantity %></li>
+      <li> <%= link_to "#{imp.vegetable.name}", vegetable_path(imp.vegetable.id) %> : <%= imp.quantity %>, params: {garden: @garden}</li>
 
     <% end %>
     </ul>

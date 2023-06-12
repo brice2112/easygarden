@@ -72,7 +72,7 @@ vegetable = Vegetable.new(
   footprint: 0.01
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312702/carotte_jt7fhf.jpg')
-vegetable.photo.attach(io: file, filename: "carotte_jt7fhf.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "carotte_jt7fhf.jpg", content_type: "image/jpg")
 vegetable.save
 
 Vegetable.create!(
@@ -87,7 +87,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/pommedeterre_dyfyn1.jpg')
-vegetable.photo.attach(io: file, filename: "pommedeterre_dyfyn1.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "pommedeterre_dyfyn1.jpg", content_type: "image/jpg")
 vegetable.save
 
 Vegetable.create!(
