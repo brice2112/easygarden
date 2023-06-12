@@ -1,0 +1,21 @@
+    <div class="flex-item">
+      <div class="card-veg d-flex justify-content-between">
+        <div class="d-flex">
+          <%= cl_image_tag(veg.photo.key, width: 80, height: 80) %>
+          <div class="card-veg-infos">
+            <h2><%= link_to "#{veg.name}", vegetable_path(veg.id) %></h2>
+            <p class="card-info-bold"><%= veg.variety %></p>
+            <p class="card-info-light"><%= veg.min_temp %></p>
+            <p class="card-info-light"><%= veg.max_temp %></p>
+          </div>
+        </div>
+        <p class="d-none"><%= text_field_tag :query, params[:query] %></p>
+        <div class="card-veg-infos d-flex card-select">
+          <div class="d-flex text-center" style="height: 6rem;">
+              <button class="select-button" style="height: 2rem; width: 2rem;">-</button>
+              <input class="select-input" style="height: 2rem; width: 2rem;" type="text">
+              <button class="select-button" style="height: 2rem; width: 2rem;">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
