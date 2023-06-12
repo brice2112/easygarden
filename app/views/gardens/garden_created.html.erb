@@ -21,8 +21,7 @@
 </div>
 
 
-
-  <p>Here's the list of what you can plant.&#10;&#13;Please select your <%= @garden.compartments.count %> favourite vegetables in the list.</p>
+  <p>Here's the list of what you can plant. Please select your <%= @garden.compartments.count %> favourite vegetables in the list.</p>
   <%# <ul>
     <% @suitable_vegetables.each do |vegetable| %>
       <%# <li><%= vegetable.name %>
@@ -41,13 +40,7 @@
   <div class="container">
     <div>
       <% @suitable_vegetables.each do |veg| %>
-        <%# <%= render partial: "shared/cardvegetable", locals: { veg: veg }  %>
-        <div class="bg-success m-3 p-3">
-        <p><%= veg.name %></p>
-          <%= text_field_tag :query, params[:query] %>
-              <button>-</button>
-              <button>+</button>
-        </div>
+        <p><%= render partial: "shared/cardveg", locals: { veg: veg } %></p>
       <% end %>
     </div>
   </div>
