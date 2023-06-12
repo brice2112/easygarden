@@ -13,6 +13,7 @@ class GardensController < ApplicationController
   end
 
   def show
+    @vegetable = Vegetable.first
   end
 
   def new
@@ -233,4 +234,7 @@ class GardensController < ApplicationController
     footprint = vegetable.footprint
     (implant_area / footprint).truncate
   end
-end
+
+  def article_params
+    params.require(:article).permit(:title, :body, :photo)
+  end

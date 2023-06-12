@@ -1,6 +1,6 @@
 
 
-
+   <%= render "shared/navbar" %>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
@@ -9,8 +9,10 @@
       <%= f.input :name %>
       <%= f.input :length, as: :float %>
       <%= f.input :width, as: :float %>
-      <%= f.button :submit, "Create garden", class: "myformButton" %>
       <%= f.input :location, as: :string %>
+
+      <%= f.button :submit, "Create garden", class: "myButton" %>
+
       <%# <%= f.input :address, input_html: {data: {"..."}, class: "d-none"}
         input_html: {data: {address_autocomplete_target: "address"}},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
