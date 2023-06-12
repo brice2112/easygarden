@@ -146,6 +146,10 @@ Vegetable.create!(
   footprint: 0.1
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/epinard_wzqehp.jpg')
+vegetable.photo.attach(io: file, filename: "epinard_wzqehp.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Laitue",
   variety: "Asteraceae",
@@ -156,6 +160,10 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.15
 )
+
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/salade_bnvqck.jpg')
+vegetable.photo.attach(io: file, filename: "salade_bnvqck.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Petit pois",
@@ -168,6 +176,10 @@ Vegetable.create!(
   footprint: 0.05
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/petitpois_tabgwn.jpg')
+vegetable.photo.attach(io: file, filename: "petitpois_tabgwn.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Haricot vert",
   variety: "Fabacées",
@@ -178,6 +190,10 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.1
 )
+
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/haricotvert_ufwzwk.jpg')
+vegetable.photo.attach(io: file, filename: "haricotvert_ufwzwk.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Poivron",
@@ -190,6 +206,10 @@ Vegetable.create!(
   footprint: 0.3
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/poivron_wuq5mh.jpg')
+vegetable.photo.attach(io: file, filename: "poivron_wuq5mh.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Courgette",
   variety: "Cucurbitaceae",
@@ -200,6 +220,9 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.9
 )
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312733/courgette_ykebdh.jpg')
+vegetable.photo.attach(io: file, filename: "courgette_ykebdh.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Maïs",
@@ -212,6 +235,10 @@ Vegetable.create!(
   footprint: 0.12
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/mais_szodom.jpg')
+vegetable.photo.attach(io: file, filename: "mais_szodom.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Tomate",
   variety: "Solanaceae",
@@ -222,6 +249,10 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.15
 )
+
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/tomate_zhk0vq.jpg')
+vegetable.photo.attach(io: file, filename: "tomate_zhk0vq.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Persil",
@@ -234,6 +265,10 @@ Vegetable.create!(
   footprint: 0.05
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/persil_qtmwuc.jpg')
+vegetable.photo.attach(io: file, filename: "persil_qtmwuc.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Basilic",
   variety: "Lamiaceae",
@@ -245,6 +280,10 @@ Vegetable.create!(
   footprint: 0.03
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312323/basilic_a3bbol.jpg')
+vegetable.photo.attach(io: file, filename: "basilic_a3bbol.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Oignon",
   variety: "Liliaceae",
@@ -255,6 +294,9 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.005
 )
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/oignon_wptmlv.jpg')
+vegetable.photo.attach(io: file, filename: "oignon_wptmlv.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Poireau",
@@ -266,6 +308,9 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.005
 )
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/poireau_grohxo.jpg')
+vegetable.photo.attach(io: file, filename: "poireau_grohxo.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Citron",
@@ -278,6 +323,10 @@ Vegetable.create!(
   footprint: 1.8
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565635/citron_waicvp.jpg')
+vegetable.photo.attach(io: file, filename: "citron_waicvp.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Avocat",
   variety: "",
@@ -288,6 +337,9 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 1.2
 )
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565664/avocat_uakglm.jpg')
+vegetable.photo.attach(io: file, filename: "avocat_uakglm.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Banane",
@@ -300,6 +352,10 @@ Vegetable.create!(
   footprint: 2.5
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565710/banane_xeb1ao.jpg')
+vegetable.photo.attach(io: file, filename: "banane_xeb1ao.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Mangue",
   variety: "",
@@ -311,6 +367,9 @@ Vegetable.create!(
   footprint: 2.1
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565644/mangue_xhrbtq.jpg')
+vegetable.photo.attach(io: file, filename: "mangue_xhrbtq.jpg", content_type: "image/png")
+vegetable.save
 
 ########SYNERGIES#############
 
