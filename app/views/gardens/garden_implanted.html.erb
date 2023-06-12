@@ -10,11 +10,16 @@
         <li>
           <%= "compartment n°#{index+1}"%>
           <%compartment.each do |veggie| %>
-            <ul>
-              <li>
-                <%= veggie %>
-              </li>
-            </ul>
+            <% if veggie.to_s != "" %>
+              <% vegetable = Vegetable.find_by(name: veggie)  %>
+              <ul>
+                <li>
+                  <%= veggie %>
+                  <%= link_to "#{vegetable.name}", vegetable_path(vegetable.id) %>
+                </li>
+
+              </ul>
+            <% end %>
           <% end %>
         </li>
       </ul>

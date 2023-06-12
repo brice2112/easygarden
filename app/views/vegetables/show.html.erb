@@ -1,3 +1,27 @@
-<h1><%= @vegetable.name %></h1>
 
-<p> mangez moi </p>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+    <h1> Fiche technique </h1>
+      <div class="card-trip">
+        <h2 class="centered"><strong><%=@vegetable.name %></strong></h2>
+
+        <% if @vegetable.photo.attached? %>
+            <%= cl_image_tag(@vegetable.photo.key, width: 100, height: 100, crop: :fill) %>
+        <% end %>
+
+        <div class="card-trip-infos">
+          <div>
+            <p class="centered"><strong>Famille</strong> : <%= @vegetable.variety %></p>
+            <p class="centered"><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
+            <%# <p class="centered"><strong>Description</strong></p><%= @vegetable.description</p> %>
+          </div>
+
+          <div class="row">
+            <%= link_to "Retour au jardin", garden_path(), class: "myButtondb" %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
