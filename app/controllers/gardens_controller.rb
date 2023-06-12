@@ -46,6 +46,7 @@ class GardensController < ApplicationController
   end
 
   def implant
+    raise
     @choices = params.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
