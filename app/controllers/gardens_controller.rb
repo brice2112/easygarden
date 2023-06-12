@@ -44,10 +44,10 @@ class GardensController < ApplicationController
     mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
     @garden.update(mean_temperature: mean_temp)
     @suitable_vegetables = set_vegetables_for_weather
+    # raise
   end
 
   def implant
-    raise
     @choices = params.select { |key, value| key.to_s.match("vegetable") }
     @array_of_veggie = @choices.values
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)

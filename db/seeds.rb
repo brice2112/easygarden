@@ -73,7 +73,7 @@ vegetable = Vegetable.new(
   description: "La carotte est une racine comestible de couleur orange vif et au goût sucré. Elle est largement connue pour sa richesse en caroténoïdes, notamment le bêta-carotène, qui se transforme en vitamine A dans notre corps. La carotte est également une source de fibres alimentaires, de vitamines et de minéraux essentiels tels que la vitamine K, le potassium et le phosphore. Ce légume croquant et juteux peut être consommé cru, en salade, ou cuit de différentes manières, comme dans les ragoûts, les sautés, les soupes et les purées. La carotte est souvent appréciée pour ses bienfaits pour la santé des yeux, la santé de la peau et son rôle dans le renforcement du système immunitaire."
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312702/carotte_jt7fhf.jpg')
-vegetable.photo.attach(io: file, filename: "carotte_jt7fhf.jpg", content_type: "image/jpg")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -89,7 +89,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/pommedeterre_dyfyn1.jpg')
-vegetable.photo.attach(io: file, filename: "pommedeterre_dyfyn1.jpg", content_type: "image/jpg")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -103,9 +103,8 @@ Vegetable.create!(
   footprint: 0.4,
   description:"Le chou est un légume à feuilles denses appartenant à la famille des crucifères. Il existe différentes variétés de chou, notamment le chou vert, le chou frisé, le chou rouge et le chou de Savoie. Le chou est réputé pour sa texture croquante et sa saveur légèrement amère. Il est riche en vitamines C, K et en fibres alimentaires, ce qui en fait un aliment sain et nutritif. Le chou est polyvalent et peut être utilisé dans une variété de plats, tels que les salades, les sautés, les soupes, les ragoûts et les plats d'accompagnement. Il est également utilisé pour faire du chou fermenté, comme la choucroute. Le chou est apprécié pour sa capacité à ajouter de la texture, de la saveur et de la valeur nutritive aux repas."
 )
-
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312721/chou_fyahco.jpg')
-vegetable.photo.attach(io: file, filename: "chou_fyahco.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -122,7 +121,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312695/broccoli_ao3ab2.jpg')
-vegetable.photo.attach(io: file, filename: "broccoli_ao3ab2.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -138,7 +137,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312733/choufleur_edvnxn.jpg')
-vegetable.photo.attach(io: file, filename: "choufleur_edvnxn.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -154,7 +153,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/epinard_wzqehp.jpg')
-vegetable.photo.attach(io: file, filename: "epinard_wzqehp.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -166,11 +165,11 @@ Vegetable.create!(
   minimum_precipitation: '',
   maximum_precipitation: '',
   footprint: 0.15,
-  description:
+  description: "La laitue est un légume à feuilles vertes largement consommé dans le monde entier. Elle se caractérise par sa texture croquante et son goût frais et légèrement amer. La laitue est souvent utilisée comme base pour les salades, offrant une grande variété de types et de variétés, tels que la laitue iceberg, la laitue romaine et la laitue frisée. La laitue est faible en calories et riche en eau, ce qui en fait un choix sain pour les personnes soucieuses de leur alimentation. Elle est également une bonne source de vitamines et de minéraux, tels que la vitamine K, la vitamine C et le folate. La laitue peut être dégustée seule ou accompagnée d'autres légumes, de protéines ou de vinaigrettes pour créer des salades savoureuses et rafraîchissantes."
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/salade_bnvqck.jpg')
-vegetable.photo.attach(io: file, filename: "salade_bnvqck.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -182,11 +181,10 @@ Vegetable.create!(
   minimum_precipitation: '',
   maximum_precipitation: '',
   footprint: 0.05,
-  description: "La laitue est un légume à feuilles vertes largement consommé dans le monde entier. Elle se caractérise par sa texture croquante et son goût frais et légèrement amer. La laitue est souvent utilisée comme base pour les salades, offrant une grande variété de types et de variétés, tels que la laitue iceberg, la laitue romaine et la laitue frisée. La laitue est faible en calories et riche en eau, ce qui en fait un choix sain pour les personnes soucieuses de leur alimentation. Elle est également une bonne source de vitamines et de minéraux, tels que la vitamine K, la vitamine C et le folate. La laitue peut être dégustée seule ou accompagnée d'autres légumes, de protéines ou de vinaigrettes pour créer des salades savoureuses et rafraîchissantes."
+  description: "Les petits pois, pois de jardins, ou pois potagers sont les jeunes graines vertes de variétés cultivées du pois, récoltées après leur développement dans les gousses et avant leur maturité. Lorsque ces graines sont récoltées à leur maturité, elles sont appelées pois cassés."
 )
-
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/petitpois_tabgwn.jpg')
-vegetable.photo.attach(io: file, filename: "petitpois_tabgwn.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -202,7 +200,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/haricotvert_ufwzwk.jpg')
-vegetable.photo.attach(io: file, filename: "haricotvert_ufwzwk.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -218,7 +216,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/poivron_wuq5mh.jpg')
-vegetable.photo.attach(io: file, filename: "poivron_wuq5mh.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -233,7 +231,7 @@ Vegetable.create!(
   description: "La courgette est un légume d'été de forme allongée et de couleur vert clair. Elle est appréciée pour sa saveur douce et sa texture tendre. La courgette est une excellente source de vitamines, de minéraux et de fibres alimentaires. Elle est souvent utilisée dans une variété de plats, tels que les sautés, les ragoûts, les soupes, les gratins et les plats d'accompagnement. La courgette peut être consommée crue, râpée en salade ou cuite de différentes manières, telles que la cuisson à la vapeur, la cuisson au four ou la cuisson à la poêle. Polyvalente et nutritive, la courgette est un choix sain et délicieux pour ajouter de la variété à votre alimentation."
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312733/courgette_ykebdh.jpg')
-vegetable.photo.attach(io: file, filename: "courgette_ykebdh.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -249,7 +247,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/mais_szodom.jpg')
-vegetable.photo.attach(io: file, filename: "mais_szodom.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -265,7 +263,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/tomate_zhk0vq.jpg')
-vegetable.photo.attach(io: file, filename: "tomate_zhk0vq.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -281,7 +279,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/persil_qtmwuc.jpg')
-vegetable.photo.attach(io: file, filename: "persil_qtmwuc.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -297,7 +295,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312323/basilic_a3bbol.jpg')
-vegetable.photo.attach(io: file, filename: "basilic_a3bbol.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -312,7 +310,7 @@ Vegetable.create!(
   description: "L'oignon est un légume à bulbe largement utilisé dans la cuisine du monde entier. Il est apprécié pour sa saveur piquante et son arôme distinctif. Les oignons sont disponibles dans différentes variétés, allant des oignons jaunes aux oignons rouges et aux oignons blancs. Ils sont une excellente source de vitamines C et B6, ainsi que de minéraux tels que le potassium et le manganèse. Les oignons sont utilisés dans de nombreux plats, qu'ils soient crus, cuits, sautés ou caramélisés. Ils ajoutent de la saveur et de la profondeur aux soupes, aux sauces, aux ragoûts, aux sautés et aux plats de viande ou de légumes. Les oignons sont polyvalents et offrent une base savoureuse pour de nombreuses recettes."
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312752/oignon_wptmlv.jpg')
-vegetable.photo.attach(io: file, filename: "oignon_wptmlv.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -327,7 +325,7 @@ Vegetable.create!(
   description: "Le poireau est un légume de la famille de l'oignon et de l'ail, caractérisé par son long bulbe blanc et ses feuilles vertes foncées. Il possède un goût délicat et légèrement sucré, rappelant l'oignon, mais avec une saveur plus subtile. Le poireau est une excellente source de fibres, de vitamines (notamment la vitamine C et la vitamine K) et de minéraux tels que le fer et le manganèse. Il est souvent utilisé dans les soupes, les ragoûts, les quiches et les plats mijotés pour ajouter de la saveur et de la texture. Le poireau peut être consommé cru, mais il est plus souvent cuit pour adoucir sa saveur et rendre sa texture plus tendre. C'est un légume polyvalent et nutritif qui ajoute une note aromatique et savoureuse à de nombreux plats."
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/poireau_grohxo.jpg')
-vegetable.photo.attach(io: file, filename: "poireau_grohxo.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -343,7 +341,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565635/citron_waicvp.jpg')
-vegetable.photo.attach(io: file, filename: "citron_waicvp.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -358,7 +356,7 @@ Vegetable.create!(
   description: "L'avocat est un fruit à la peau verte et à la chair crémeuse, largement apprécié pour sa texture lisse et son goût délicat. Il est riche en graisses saines, en fibres alimentaires et en vitamines, notamment la vitamine K, la vitamine C, la vitamine E et les vitamines du groupe B. L'avocat est souvent considéré comme un super aliment en raison de sa teneur en nutriments bénéfiques pour la santé. Il est utilisé dans de nombreuses préparations culinaires, telles que les salades, les guacamoles, les sandwichs, les sushis et les smoothies. L'avocat ajoute une texture crémeuse et un goût doux aux plats, tout en apportant des bienfaits nutritionnels. C'est un fruit polyvalent et nutritif apprécié dans le monde entier."
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565664/avocat_uakglm.jpg')
-vegetable.photo.attach(io: file, filename: "avocat_uakglm.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -374,7 +372,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565710/banane_xeb1ao.jpg')
-vegetable.photo.attach(io: file, filename: "banane_xeb1ao.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 Vegetable.create!(
@@ -390,7 +388,7 @@ Vegetable.create!(
 )
 
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686565644/mangue_xhrbtq.jpg')
-vegetable.photo.attach(io: file, filename: "mangue_xhrbtq.jpg", content_type: "image/png")
+vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 
 ########SYNERGIES#############
@@ -518,9 +516,9 @@ Synergy.create!(first_vegetable: Vegetable.find_by(name: "Chou"), second_vegetab
 
 #Chou-fleur / Épinards / Laitue
 
-Synergy.create!(first_vegetable: Vegetable.find_by(name: "Chou-fleur"), second_vegetable: Vegetable.find_by(name: "Épinards"))
+Synergy.create!(first_vegetable: Vegetable.find_by(name: "Chou-fleur"), second_vegetable: Vegetable.find_by(name: "Epinard"))
 Synergy.create!(first_vegetable: Vegetable.find_by(name: "Chou-fleur"), second_vegetable: Vegetable.find_by(name: "Laitue"))
-Synergy.create!(first_vegetable: Vegetable.find_by(name: "Épinards"), second_vegetable: Vegetable.find_by(name: "Laitue"))
+Synergy.create!(first_vegetable: Vegetable.find_by(name: "Epinard"), second_vegetable: Vegetable.find_by(name: "Laitue"))
 
 #Haricot vert / Courgette / Maïs
 
