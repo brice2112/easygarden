@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "open-uri"
+require "cloudinary"
 # require "json"
 Implantation.destroy_all
 Compartment.destroy_all
@@ -60,7 +61,7 @@ User.create!(
 
 puts "Creating Vegetables..."
 
-Vegetable.create!(
+vegetable = Vegetable.new(
   name: "Carotte",
   variety: "",
   min_temp: 7,
@@ -70,6 +71,9 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.01
 )
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312702/carotte_jt7fhf.jpg')
+vegetable.photo.attach(io: file, filename: "carotte_jt7fhf.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Pomme de terre",
