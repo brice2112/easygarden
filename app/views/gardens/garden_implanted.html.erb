@@ -5,21 +5,21 @@
 
   <p>your garden's implantation:</p>
 
-  <% @implantation.each_with_index do |compartment, index| %>
-    <ul>
-      <li>
-        <%= "Compartment n°#{index+1}" %>
-        <%compartment.each do |veggie| %>
-          <ul>
-            <li>
-              <%= veggie %>
-            </li>
-          </ul>
-        <% end %>
-      </li>
-    </ul>
-  <% end %>
+    <% @implantation.each_with_index do |compartment, index| %>
+      <ul>
+        <li>
+          <%= "compartment n°#{index+1}"%>
+          <%compartment.each do |veggie| %>
+            <ul>
+              <li>
+                <%= veggie %>
+              </li>
+            </ul>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
 
-
+  <%= button_to "Validate", validate_garden_path(@garden), method: :post, params: {implantation: @implantation, counter: params["counter"]} %>
 
 </div>

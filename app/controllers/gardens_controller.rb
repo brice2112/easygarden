@@ -1,13 +1,12 @@
 require 'net/http'
 require 'json'
 
-
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
   before_action :set_vegetables_for_weather, only: [:implant]
-  COMP_W = 1
+  COMP_W = 0.5
   IMP_L = 1
-  ALLEY_W = 0.5
+  ALLEY_W = 0.3
 
   def index
     @gardens = Garden.all
@@ -32,7 +31,6 @@ class GardensController < ApplicationController
       @garden.compartments.new
       i += 1
     end
-
     if @garden.save!
       redirect_to garden_created_path(@garden)
     else
@@ -52,6 +50,7 @@ class GardensController < ApplicationController
     @array_of_veggie = @choices.values
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
     redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
+    # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
   end
 
   def garden_implanted
@@ -59,11 +58,13 @@ class GardensController < ApplicationController
   end
 
   def destroy
+    @garden.destroy
+    redirect_to gardens_path
   end
 
   def validate
-    implantations = params #to define
-    validate_garden(garden, implantations)
+    implantations = restructure_implantation_array(params["implantation"], params["counter"])
+    validate_garden(@garden, implantations)
     redirect_to garden_path(@garden)
   end
 
@@ -134,17 +135,15 @@ class GardensController < ApplicationController
     @vegetables_for_weather
   end
 
+# Regenerate a bi-dimensional array from the flattened one sent through params
   def restructure_implantation_array(implantation, counter)
     restructured_implantation = []
-    implantation.each_slice(counter.to_i) do |compartment|
+    flat_implant = implantation.flatten
+    flat_implant.each_slice(counter.to_i) do |compartment|
       restructured_implantation << compartment
     end
-
     return restructured_implantation
-
   end
-
-end
 
 ####### Garden implantation ##########
   def number_of_implantations(garden_length)

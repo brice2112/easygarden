@@ -1,19 +1,21 @@
 .navbar-lewagon {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   background: #5AC698;
   position: fixed;
   bottom: 0;
+  height: 50px;
   width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   position: bottom;
-  justify-content: space-evenly;
+
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-  justify-content: space-evenly;
+
 }

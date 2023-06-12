@@ -1,7 +1,7 @@
 .navbar-top {
   justify-content: center;
+  height: 45px;
   background: white;
-  position: fixed;
   top: 0;
   width: 100%;
   text-align: center;
@@ -14,6 +14,6 @@
 }
 
 .navbar-top .navbar-brand img {
-  width: 40px;
+  padding-top: 5px;
   justify-content: center;
 }

@@ -9,12 +9,15 @@
 require "open-uri"
 require "cloudinary"
 # require "json"
-User.destroy_all
+Implantation.destroy_all
+Compartment.destroy_all
+Synergy.destroy_all
 Vegetable.destroy_all
-
-######### USERS #########
-
+Garden.destroy_all
 User.destroy_all
+
+puts "Destroy all OK --"
+######### USERS #########
 
 puts "Creating users..."
 
@@ -55,7 +58,6 @@ User.create!(
 
 #################VEGETABLES#####################
 
-Vegetable.destroy_all
 
 puts "Creating Vegetables..."
 
@@ -67,7 +69,7 @@ vegetable = Vegetable.new(
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.004
+  footprint: 0.01
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312702/carotte_jt7fhf.jpg')
 vegetable.photo.attach(io: file, filename: "carotte_jt7fhf.jpg", content_type: "image/png")
@@ -250,9 +252,52 @@ Vegetable.create!(
   footprint: 0.005
 )
 
+Vegetable.create!(
+  name: "Citron",
+  variety: "",
+  min_temp: 18,
+  max_temp: 42,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 1.8
+)
+
+Vegetable.create!(
+  name: "Avocat",
+  variety: "",
+  min_temp: 23,
+  max_temp: 42,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 1.2
+)
+
+Vegetable.create!(
+  name: "Banane",
+  variety: "",
+  min_temp: 25,
+  max_temp: 45,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 2.5
+)
+
+Vegetable.create!(
+  name: "Mangue",
+  variety: "",
+  min_temp: 29,
+  max_temp: 46,
+  atmospheric_humidity: 50,
+  minimum_precipitation: '',
+  maximum_precipitation: '',
+  footprint: 2.1
+)
+
 
 ########SYNERGIES#############
-Synergy.destroy_all
 
 puts "Creating Synergies..."
 
@@ -304,10 +349,42 @@ Synergy.create!(
   second_vegetable: Vegetable.find_by(name: "Persil")
 )
 
+#fake-tropical
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Citron"),
+  second_vegetable: Vegetable.find_by(name: "Avocat")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Citron"),
+  second_vegetable: Vegetable.find_by(name: "Banane")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Avocat"),
+  second_vegetable: Vegetable.find_by(name: "Banane")
+)
+
+#fake-brassicasseae
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Chou"),
+  second_vegetable: Vegetable.find_by(name: "Chou-fleur")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Chou"),
+  second_vegetable: Vegetable.find_by(name: "Brocoli")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Chou-fleur"),
+  second_vegetable: Vegetable.find_by(name: "Brocoli")
+)
+
+
 ########GARDENS###############
 
 
-Garden.destroy_all
 
 puts "Creating Gardens..."
 
@@ -337,8 +414,6 @@ Garden.create(
 
 ##########COMPARTEMENTS###########
 
-Compartment.destroy_all
-
 puts "Creating Compartments..."
 
 Compartment.create(
@@ -358,7 +433,6 @@ Compartment.create(
 
 ###########IMPLANTATION############
 
-Implantation.destroy_all
 
 puts "Creating Implantations..."
 
