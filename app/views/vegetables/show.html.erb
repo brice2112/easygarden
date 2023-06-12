@@ -1,3 +1,3 @@
-<h1><%= @vegetable.name %></h1>
-
+<h1><%= @vegetable.name("carotte_jt7fhf.jpg") %></h1>
+<%= cl_image_path @vegetable.photo.key, height: 300, crop: :fill %>
 <p> mangez moi </p>

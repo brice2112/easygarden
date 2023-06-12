@@ -86,6 +86,10 @@ Vegetable.create!(
   footprint: 0.35
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312753/pommedeterre_dyfyn1.jpg')
+vegetable.photo.attach(io: file, filename: "pommedeterre_dyfyn1.jpg", content_type: "image/png")
+vegetable.save
+
 Vegetable.create!(
   name: "Chou",
   variety: "brassicacées",
@@ -96,6 +100,10 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.4
 )
+
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312721/chou_fyahco.jpg')
+vegetable.photo.attach(io: file, filename: "chou_fyahco.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Brocoli",
@@ -108,6 +116,9 @@ Vegetable.create!(
   footprint: 0.4
 )
 
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312695/broccoli_ao3ab2.jpg')
+vegetable.photo.attach(io: file, filename: "broccoli_ao3ab2.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Chou-fleur",
@@ -119,6 +130,10 @@ Vegetable.create!(
   maximum_precipitation: '',
   footprint: 0.4
 )
+
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312733/choufleur_edvnxn.jpg')
+vegetable.photo.attach(io: file, filename: "choufleur_edvnxn.jpg", content_type: "image/png")
+vegetable.save
 
 Vegetable.create!(
   name: "Epinard",
