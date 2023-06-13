@@ -6,12 +6,12 @@
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
       <div class="form-login">
     <%= simple_form_for @garden do |f| %>
-      <%= f.input :name %>
-      <%= f.input :length, as: :float %>
-      <%= f.input :width, as: :float %>
-      <%= f.input :location, as: :string %>
+      <%= f.input :name, required: true %>
+      <%= f.input :length, as: :float, required: true, label: "Longueur" %>
+      <%= f.input :width, as: :float, required: true, label: "Largeur" %>
+      <%= f.input :location, as: :string, required: true, label: "Localisation" %>
 
-      <%= f.button :submit, "Create garden", class: "myButton" %>
+      <%= f.button :submit, "Suivant", class: "myButton" %>
 
       <%# <%= f.input :address, input_html: {data: {"..."}, class: "d-none"}
         input_html: {data: {address_autocomplete_target: "address"}},
@@ -21,3 +21,4 @@
     </div>
   </div>
 </div>
+

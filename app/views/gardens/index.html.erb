@@ -1,22 +1,20 @@
-<%= render "shared/navbar" %>
 <div class="container">
   <div class="row">
     <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
-      <h1 class="text-center mt-4">My Gardens</h1>
-      <p><%= current_user.email %></p>
+      <h1 class="text-center mt-4"><strong>Mes jardins</strong></h1>
+      <p class="text-center mt-4"><%= current_user.email %></p>
       <% @gardens.each do |garden| %>
-        <ul>
-          <li>
-            <strong><%= link_to "#{garden.name}", garden_path(garden.id), class: "linksstyle" %></strong>
-            <p><%= garden.location %></p>
-            <%= button_to "Delete", garden_path(garden.id), method: :delete, data: { confirm: "Are you sure?" }, class: "myButtondb" %>
-          </li>
-        </ul>
+        <div class="garden-item border border-success p-3 mb-3">
+          <h3 class="mb-0"><strong><%= link_to garden.name, garden_path(garden.id), class: "linksstyle" %></strong></h3>
+          <p class="mb-2"><%= garden.location %></p>
+          <%= button_to "Supprimer", garden_path(garden.id), method: :delete, data: { confirm: "Confirme ton choix" }, class: "myButtondb" %>
+        </div>
       <% end %>
       <div class="row">
-        <%= link_to "Create new garden", new_garden_path, class: "myButtondb" %>
-        <%= link_to "Log Out", destroy_user_session_path, class: "myButtondb", data: { turbo_method: :delete } %>
+        <%= link_to "Créer un jardin", new_garden_path, class: "myButtondb" %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, class: "myButtondb", data: { turbo_method: :delete } %>
       </div>
     </div>
   </div>
 </div>
+<%= render "shared/navbar" %>

@@ -1,0 +1,37 @@
+.truncate {
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
+.description .collapsed-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description.collapsed .collapsed-text {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+}
+
+.description .expand-button {
+  cursor: pointer;
+}
+
+.description .expanded {
+  display: none;
+}
+
+.description.collapsed .expanded {
+  display: inline;
+}
+
+.description.collapsed .collapsed {
+  display: none;
+}

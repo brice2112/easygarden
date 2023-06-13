@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+# require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
@@ -23,18 +24,25 @@ class GardensController < ApplicationController
   def create
     @garden = Garden.new(garden_params)
     @garden.user = current_user
-    # Calculate number of compartments
-    n = number_of_compartments(@garden.width)
-    m = number_of_implantations(@garden.length)
-    i = 0
-    while (i <= n) do
-      @garden.compartments.new
-      i += 1
-    end
-    if @garden.save!
-      redirect_to garden_created_path(@garden)
+    if @garden.valid?
+      # Calculate number of compartments
+      n = number_of_compartments(@garden.width)
+      m = number_of_implantations(@garden.length)
+      i = 0
+      while (i <= n) do
+        @garden.compartments.new
+        i += 1
+      end
+      if @garden.save!
+        redirect_to garden_created_path(@garden)
+        # flash.notice = "Garden succesfully created!"
+      else
+        flash.alert = "Error in creating garden..."
+        render :new, status: :unprocessable_entity
+      end
     else
-      render new, status: :unprocessable_entity
+      flash.alert = "Error in creating garden..."
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -46,11 +54,14 @@ class GardensController < ApplicationController
   end
 
   def implant
-    raise
-    @choices = params.select { |key, value| key.to_s.match("vegetable") }
-    @array_of_veggie = @choices.values
+    if params[:array_of_veggie].present?
+      @array_of_veggie = params[:array_of_veggie]
+    else
+      @choices = params.select { |key, value| key.to_s.match("vegetable") }
+      @array_of_veggie = @choices.values
+    end
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
+    redirect_to garden_implanted_path(@garden, array_of_veggie: @array_of_veggie, implantation: @implantation, counter: @implantation.first.count)
     # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
   end
 
@@ -80,7 +91,7 @@ class GardensController < ApplicationController
   end
 
   def garden_params
-    params.require(:garden).permit(:length, :width, :location, :name)
+    params.require(:garden).permit(:length, :width, :location, :name, :choices)
   end
 
   def number_of_compartments(garden_width)
