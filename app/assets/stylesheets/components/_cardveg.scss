@@ -92,3 +92,57 @@
     text-align: center;
     margin-inline: 2px;
   }
+
+  .card-comp {
+    padding: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color:#5AC698;
+    font-size: 16px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+  }
+
+  .card-comp p {
+    padding: 2px;
+    margin-bottom: 2px;
+    padding: 2px;
+    margin-bottom: 2px;
+    background: #5AC698;
+    border-radius: 8px;
+    color: white;
+    padding-inline: 4px;
+  }
+
+  .card-veg-small {
+    height: 80px;
+    margin: 4px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: rgba(black, 0.3);
+    position: relative;
+    text-align: center;
+  }
+
+  .card-veg-small img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%,;
+    object-fit: cover;
+    opacity: 0.6;
+    background-color: black;
+  }
+
+  .card-veg-small a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color:white;
+    font-size: 24px;
+    font-weight: 600;
+  }

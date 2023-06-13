@@ -51,14 +51,17 @@ class GardensController < ApplicationController
     mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
     @garden.update(mean_temperature: mean_temp)
     @suitable_vegetables = set_vegetables_for_weather
-    # raise
   end
 
   def implant
-    @choices = params.select { |key, value| key.to_s.match("vegetable") }
-    @array_of_veggie = @choices.values
+    if params[:array_of_veggie].present?
+      @array_of_veggie = params[:array_of_veggie]
+    else
+      @choices = params.select { |key, value| key.to_s.match("vegetable") }
+      @array_of_veggie = @choices.values
+    end
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
-    redirect_to garden_implanted_path(@garden, implantation: @implantation, counter: @implantation.first.count)
+    redirect_to garden_implanted_path(@garden, array_of_veggie: @array_of_veggie, implantation: @implantation, counter: @implantation.first.count)
     # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
   end
 
@@ -88,7 +91,7 @@ class GardensController < ApplicationController
   end
 
   def garden_params
-    params.require(:garden).permit(:length, :width, :location, :name)
+    params.require(:garden).permit(:length, :width, :location, :name, :choices)
   end
 
   def number_of_compartments(garden_width)
