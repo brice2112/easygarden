@@ -1,0 +1,148 @@
+.card-veg {
+  overflow: hidden;
+  height: 80px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  // background-color: aqua;
+  background-size: cover;
+  background-position: center;
+}
+
+.flex-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.card-veg img {
+  object-fit: cover;
+  // border-radius: 8px;
+}
+
+.card-veg h2 {
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-veg p {
+  font-size: 24px;
+  line-height: 1;
+  // opacity: .7;
+  align-items: self-start;
+  margin-bottom: 0;
+  margin-top: 12px;
+}
+
+.card-veg .card-veg-infos a {
+  text-decoration: none;
+  color: rgb(20, 100, 74);
+  margin: 8px;
+}
+
+.card-veg .card-veg-infos .card-info-bold {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 8px;
+}
+
+
+.card-veg .card-veg-infos .card-info-light {
+  font-size: 12px;
+  margin: 8px;
+// .card-vegs .card-veg-infos p h2 {
+//   padding: 2px;
+//   margin: 2px;
+}
+
+.card-veg .card-select {
+  margin-top: 12px;
+  margin-right: 12px;
+  padding: 8px;
+  color: white;
+  // background-color: rgb(20, 100, 74);
+  border-radius: 8px;
+  text-align: right;
+  justify-content: center;
+}
+
+.card-veg .card-rating {
+  font-weight: 600;
+  color: rgb(20, 100, 74);
+  text-align: right;
+  margin-right: 12px
+}
+
+.card-veg .select-input{
+  width: 30px;
+  margin-inline: 2px;
+}
+
+.card-veg .select-button {
+  background-color:#5AC698;
+    border-radius:30px;
+    border:1px solid #00B6A1;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size:16px;
+    font-weight: bold;
+    text-decoration:none;
+    text-align: center;
+    margin-inline: 2px;
+  }
+
+  .card-comp {
+    padding: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color:#5AC698;
+    font-size: 16px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+  }
+
+  .card-comp p {
+    padding: 2px;
+    margin-bottom: 2px;
+    padding: 2px;
+    margin-bottom: 2px;
+    background: #5AC698;
+    border-radius: 8px;
+    color: white;
+    padding-inline: 4px;
+  }
+
+  .card-veg-small {
+    height: 80px;
+    margin: 4px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: rgba(black, 0.3);
+    position: relative;
+    text-align: center;
+  }
+
+  .card-veg-small img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%,;
+    object-fit: cover;
+    opacity: 0.6;
+    background-color: black;
+  }
+
+  .card-veg-small a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color:white;
+    font-size: 24px;
+    font-weight: 600;
+  }

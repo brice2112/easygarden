@@ -1,3 +1,91 @@
-<h1><%= @vegetable.name %></h1>
+  <div class="container">
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-vegetable">
+        <div class="card-trip">
 
-<p> mangez moi </p>
+          <div class="row">
+            <div class="row justify-content-center">
+              <h2 class="text-center"><strong><%=@vegetable.name %></strong></h2>
+            </div>
+          </div>
+
+            <div class="row mt-3">
+              <div class="col-4">
+                <% if @vegetable.photo.attached? %>
+                  <%= cl_image_tag(@vegetable.photo.key, width: 100, height: 100, crop: :fill) %>
+                <% end %>
+              </div>
+              <div class="col-8">
+                <p><strong>Famille</strong> : <%= @vegetable.variety %></p>
+                <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
+              </div>
+
+              <div class="row mt-3 display-flex">
+                <div class="">
+
+                    <p><strong>Description</strong> : </p>
+
+                    <p class="truncate description"> <%= @vegetable.description %> </p>
+                    <button class="myButtonVoir">+</button>
+
+              <script>
+                const clicate = () => {
+                  const element = document.querySelector(".description");
+                  element.classList.toggle("truncate");
+                  console.log(element);
+                ;}
+
+                const button = document.querySelector(".myButtonVoir");
+                button.addEventListener("click", clicate);
+              </script>
+
+                    <%# <script>
+                    var descriptionElements = document.getElementsByClassName("description");
+                    for (var i = 0; i < descriptionElements.length; i++) {
+                    var descriptionElement = descriptionElements[i];
+                    var text = descriptionElement.textContent;
+
+                      if (text.length > 200) {
+                        descriptionElement.classList.add("truncate");
+                        descriptionElement.textContent = text.substring(0, 200) + "...";
+                      }
+                    }
+                      </script> %>
+                </div>
+
+                  <%# <div class="description">
+                      <button class="collapsed-text">-</button>
+                      <button class="expanded-button">+</button>
+
+                        <script>
+                          var descriptionElement = document.querySelector(".description");
+                          var expandButton = descriptionElement.querySelector(".expand-button");
+                          var collapsedText = descriptionElement.querySelector(".collapsed-text");
+
+                          expandButton.addEventListener("click", function() {
+                            if (collapsedText.style.display === "none") {
+                              collapsedText.style.display = "block";
+                            } else {
+                              collapsedText.style.display = "none";
+                            }
+                          });
+                        </script> %>
+                  </div>
+                </div>
+              </div>
+
+            <div class="row">
+                <%= link_to "Retour au jardin", garden_path(), class: "myButtondb" %>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+        </div>
+  </div>

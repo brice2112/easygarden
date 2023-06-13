@@ -7,5 +7,4 @@ class CompartmentController < ApplicationController
   def create
     @compartment = Compartment.new(compartment_params)
   end
-
 end

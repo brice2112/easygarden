@@ -1,0 +1,25 @@
+fr:
+  activerecord:
+    attributes:
+      garden:
+        name: Nom
+        length: Longueur
+        width: Largeur
+        location: Localisation
+
+    errors:
+      messages:
+        and: et
+      models:
+        garden:
+          attributes:
+            name:
+              blank: est nécessaire
+            length:
+              blank: est nécessaire
+              not_a_number: doit être un nombre
+            width:
+              blank: est nécessaire
+              not_a_number: doit être un nombre
+            location:
+              blank: est nécessaire
