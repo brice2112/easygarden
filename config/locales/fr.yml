@@ -6,6 +6,10 @@ fr:
         length: Longueur
         width: Largeur
         location: Localisation
+      user:
+        email: Email
+        password: Mot de passe
+        password_confirmation: Confirmation de mot de passe
 
     errors:
       messages:
@@ -23,3 +27,15 @@ fr:
               not_a_number: doit être un nombre
             location:
               blank: est nécessaire
+        user:
+          attributes:
+            email:
+              blank: est nécessaire
+              taken: existe déjà
+              invalid: n'est pas valide
+            password:
+              blank: est nécessaire
+              too_short: est trop court
+            password_confirmation:
+              blank: est nécessaire
+              confirmation: doit correspondre au mot de passe
