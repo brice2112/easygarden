@@ -6,7 +6,7 @@
 
 <div class="cards-garden">
   <h1 class="fw-bold"><%= @garden.name %></h1>
-  <p>Surface : <%= @garden.length * @garden.width %> m²</p>
+  <p>Surface : <%= ( @garden.length * @garden.width ).truncate %> m²</p>
   <p>Température moyenne : <%= @garden.mean_temperature %> °C</p>
 </div>
 
@@ -28,7 +28,7 @@
           </div>
           <div class="card-veg-infos d-flex card-select">
             <button data-action="click->choose-veggie#removeVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">-</button>
-            <span style="color: black" id="counter_<%= veg.id %>">0</span>
+            <span style="text-center color: black; style=height: 2rem; width: 2rem;" id="counter_<%= veg.id %>">0</span>
             <button data-action="click->choose-veggie#addVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">+</button>
           </div>
         </div>
