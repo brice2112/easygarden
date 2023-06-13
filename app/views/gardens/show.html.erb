@@ -1,38 +1,29 @@
-   <%= render "shared/navbar" %>
 
 <div class="container">
-   <div class="row">
-    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
-  <h1 class="fs-1"><%= @garden.name %></h1>
-  <p>Dimensions: <%= @garden.length %>m x <%= @garden.width %>m </p>
-  <p>Area: <%= @garden.length*@garden.width %>m²</p>
-  <p>location: <%= @garden.location %></p>
-  <p>mean temperature: <%= @garden.mean_temperature %></p>
-
-
-<%# show garden infos ... %>
-<%= cl_image_path @vegetable.photo.key, height: 300, crop: :fill %>
-
-<div style="width: 50%; height: 100px;" class="text-bg-success p-9">
-<p>Garden map coming soon...</p>
-
-</div>
-<h2>Your garden's layout :</h2>
-
-<ol>
-
-<div class ="plan"><%# div plan %>
-<% @garden.compartments.each_with_index do |comp, c| %>
-  <div class="container mb-3"> <%# div compartment: flex, gap... %>
-    <li><p>Compartment no <%= c + 1 %></p></li>
-    <ul>
-    <% comp.implantations.each do |imp|  %>
-      <%# div implatation: petit picto, background ... %>
-      <li> <%= link_to "#{imp.vegetable.name}", vegetable_path(imp.vegetable.id) %> : <%= imp.quantity %></li>
-
-    <% end %>
-    </ul>
+  <div class="row">
+      <h1 class="text-center mt-4"><strong><%= @garden.name %></strong></h1>
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4" style="margin-top: 20px;">
+      <p><strong>Dimensions:</strong> <%= @garden.length %>m x <%= @garden.width %>m</p>
+      <p><strong>Surface:</strong> <%= @garden.length * @garden.width %>m²</p>
+      <p><strong>Adresse:</strong> <%= @garden.location %></p>
+    </div>
+<h3 class="text-center mt-4" style="margin-bottom: -30px;"><strong>Votre plan final</strong></h3>
   </div>
-  <% end %>
-</ol>
 </div>
+<div class="plan">
+  <% @garden.compartments.each_with_index do |comp, c| %>
+    <div class="compartment">
+      <%# <p><%= c + 1 %>
+        <% comp.implantations.each do |imp| %>
+          <% if imp.quantity > 0 %>
+            <%= link_to vegetable_path(imp.vegetable.id) do %>
+              <div class="implantation">
+                <span><%= imp.quantity %> </span>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+<%= render "shared/navbar" %>
