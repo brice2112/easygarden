@@ -4,30 +4,13 @@
 
 <div class="container" data-controller="choose-veggie">
 
-  <div class="container"  >
-    <div class="container" >
-      <h1 class="fw-bold"><%= @garden.name %></h1>
-      <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length * @garden.width %> square meters</h3>
-      <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
-    </div>
-    <%= button_to "Next", implant_path(@garden),
-    disabled: true,
-    method: :post, params: { implantation: @implantation, counter: params["counter"] },
-    "data-choose-veggie-target": "button" %>
-  </div>
+<div class="cards-garden">
+  <h1 class="fw-bold"><%= @garden.name %></h1>
+  <p>Surface : <%= @garden.length * @garden.width %> m²</p>
+  <p>Température moyenne : <%= @garden.mean_temperature %> °C</p>
+</div>
 
-  <%# Compartments to be filled by user %>
-  <p>Vous pouvez implanter <%= @garden.compartments.count %> compartiments dans votre jardin.</p>
-  <div class="container text-center">
-    <div class="row row-cols-2">
-      <% i = 0 %>
-      <% while i < @garden.compartments.count %>
-        <div id="veg<%= i+1 %>" class="col card m-2" style="width: 5rem; height: 5rem" data-choose-veggie-target="comp"></div>
-        <% i += 1 %>
-      <% end %>
-    </div>
-  </div>
-
+  <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
   <div class="cards-vege">
     <% @suitable_vegetables.each do |veg| %>
       <div class="flex-item">
@@ -53,39 +36,10 @@
     <% end %>
   </div>
 
-  <%# List of choosable vegetables %>
-  <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
   <div class="justify-content-center">
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
-      <%= form.hidden_field :toto, data: { choose_veggie_target: "field"} %>
-
-      <%= form.submit "Next", class: "myButton"  %>
+      <%= form.hidden_field :array_of_veggie, data: { choose_veggie_target: "field"} %>
+      <%= form.submit "Suivant", class: "myButton"  %>
     <% end %>
   </div>
-
-
-
-  <%#  ##################### TEMPORAY ###################### %>
-
-  <ul>
-    <% @suitable_vegetables.each do |vegetable| %>
-      <li><%= vegetable.name %></li>
-      <% available_veggie << vegetable.name%>
-    <% end %>
-  </ul>
-
-  <%#  ######BELOW IS THE FORM TO SELECT THE VEGGIES#####
-       -- Keys are in the string format
-       -- Can't figure out how to make them symbols ?    %>
-
-  <%= form_with url: implant_path(@garden) do |form| %>
-    <% i = 0 %>
-    <% while i < @garden.compartments.count %>
-      <% veggie = "vegetable#{i + 1}" %>
-      <%= form.select veggie, available_veggie %>
-      <% i += 1 %>
-    <% end %>
-    <%= form.submit "Next" %>
-  <% end %>
-
 </div>
