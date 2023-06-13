@@ -3,28 +3,30 @@
 
   <h1 class="fw-bold"><%= @garden.name %></h1>
 
-  <p>your garden's implantation:</p>
+  <p>Voici ce qu'on vous propose de planter:</p>
 
-    <% @implantation.each_with_index do |compartment, index| %>
-      <ul>
-        <li>
-          <%= "compartment n°#{index+1}"%>
-          <%compartment.each do |veggie| %>
-            <% if veggie.to_s != "" %>
-              <% vegetable = Vegetable.find_by(name: veggie)  %>
-              <ul>
-                <li>
-                  <%= veggie %>
-                  <%= link_to "#{vegetable.name}", vegetable_path(vegetable.id) %>
-                </li>
-
-              </ul>
+    <div class="justify-content-center">
+      <% @implantation.each_with_index do |compartment, index| %>
+        <div class="container card-comp" id="comp<%= index+1 %>">
+          <p><%= "Compartiment #{index+1}"%></p>
+          <div class="d-flex">
+            <%compartment.each do |veggie| %>
+              <div class="container card-veg-small flex-fill">
+                <% if veggie.to_s != "" %>
+                  <% vegetable = Vegetable.find_by(name: veggie)  %>
+                  <%= cl_image_tag(vegetable.photo.key, width: 80, height: 80) %>
+                  <div class="centered">
+                    <%= link_to "#{vegetable.name}", vegetable_path(vegetable.id) %>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-
-  <%= button_to "Valider", validate_garden_path(@garden), method: :post, params: {implantation: @implantation, counter: params["counter"]} %>
-
+          </div>
+        </div>
+      <% end %>
+      <div class="container text-center">
+        <%= button_to "Rafraîchir", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButton" %>
+        <%= button_to "Valider", validate_garden_path(@garden), method: :post, params: {implantation: @implantation, counter: params["counter"]}, class: "myButton" %>
+      </div>
+    </div>
 </div>
