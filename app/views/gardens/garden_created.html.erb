@@ -7,10 +7,10 @@
   <div class="container"  >
     <div class="container" >
       <h1 class="fw-bold"><%= @garden.name %></h1>
-      <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length * @garden.width %> square meters</h3>
-      <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
+      <h3 class="fw-lighter fst-italic fs-6" >Surface : <%= @garden.length * @garden.width %> mètres carrés</h3>
+      <h3 class="fw-lighter fst-italic fs-6" >Moyenne des températures : <%= @garden.mean_temperature %> °C</h3>
     </div>
-    <%= button_to "Next", implant_path(@garden),
+    <%= button_to "Valider", implant_path(@garden),
     disabled: true,
     method: :post, params: { implantation: @implantation, counter: params["counter"] },
     "data-choose-veggie-target": "button" %>
@@ -59,7 +59,7 @@
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
       <%= form.hidden_field :toto, data: { choose_veggie_target: "field"} %>
 
-      <%= form.submit "Next", class: "myButton"  %>
+      <%= form.submit "Valider", class: "myButton"  %>
     <% end %>
   </div>
 
@@ -85,7 +85,6 @@
       <%= form.select veggie, available_veggie %>
       <% i += 1 %>
     <% end %>
-    <%= form.submit "Next" %>
+    <%= form.submit "Valider" %>
   <% end %>
-
 </div>
