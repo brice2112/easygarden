@@ -4,20 +4,20 @@
    <div class="row">
     <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
   <h1 class="fs-1"><%= @garden.name %></h1>
-  <p>Dimensions: <%= @garden.length %>m x <%= @garden.width %>m </p>
-  <p>Area: <%= @garden.length*@garden.width %>m²</p>
-  <p>location: <%= @garden.location %></p>
-  <p>mean temperature: <%= @garden.mean_temperature %></p>
+  <p>Dimensions : <%= @garden.length %>m x <%= @garden.width %>m </p>
+  <p>Surface : <%= @garden.length*@garden.width %>m²</p>
+  <p>Localisation : <%= @garden.location %></p>
+  <p>Moyenne des températures : <%= @garden.mean_temperature %></p>
 
 
 <%# show garden infos ... %>
 
 
 <div style="width: 50%; height: 100px;" class="text-bg-success p-9">
-<p>Garden map coming soon...</p>
+<p>Génération du plan du jardin en cours...</p>
 
 </div>
-<h2>Your garden's layout :</h2>
+<h2>Voici le plan de ton jardin :</h2>
 
 <ol>
 
