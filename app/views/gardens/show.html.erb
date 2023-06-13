@@ -1,35 +1,31 @@
-   <%= render "shared/navbar" %>
 
 <div class="container">
-   <div class="row">
-    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
-  <h1 class="fs-1"><%= @garden.name %></h1>
-  <p>Dimensions : <%= @garden.length %>m x <%= @garden.width %>m </p>
-  <p>Surface : <%= @garden.length*@garden.width %>m²</p>
-  <p>Localisation : <%= @garden.location %></p>
-  <p>Moyenne des températures : <%= @garden.mean_temperature %></p>
-
-
-<%# show garden infos ... %>
-
-
-<div style="width: 50%; height: 100px;" class="text-bg-success p-9">
-<p>Génération du plan du jardin en cours...</p>
-
-</div>
-<h2>Voici le plan de ton jardin :</h2>
-
-<ol>
-
-<% @garden.compartments.each_with_index do |comp, c| %>
-  <div class="container mb-3">
-    <li><p>Compartment no <%= c + 1 %></p></li>
-    <ul>
-    <% comp.implantations.each do |imp|  %>
-      <li> <%= link_to "#{imp.vegetable.name}", vegetable_path(imp.vegetable.id) %> : <%= imp.quantity %>, params: {garden: @garden}</li>
-
-    <% end %>
-    </ul>
+  <div class="row">
+      <h1 class="text-center mt-4"><strong><%= @garden.name %></strong></h1>
+         <div class="col col-xs-12 col-sm-4 col-sm-offset-4" style="margin-top: 20px;">
+            <p><strong>Dimensions:</strong> <%= @garden.length %>m x <%= @garden.width %>m</p>
+            <p><strong>Surface:</strong> <%= @garden.length * @garden.width %>m²</p>
+            <p><strong>Adresse:</strong> <%= @garden.location %></p>
+        </div>
+    <h3 class="text-center mt-4" style="margin-bottom: -30px;"><strong>Votre plan final</strong></h3>
   </div>
+</div>
+</div>
+
+<div class="plan">
+  <% @garden.compartments.each_with_index do |comp, c| %>
+    <div class="compartment">
+      <%# <p><%= c + 1 %>
+        <% comp.implantations.each do |imp| %>
+          <% if imp.quantity > 0 %>
+            <%= link_to vegetable_path(imp.vegetable.id) do %>
+              <div class="implantation">
+                <span><%= imp.quantity %> </span>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
   <% end %>
-</ol>
+</div>
+<%= render "shared/navbar" %>
