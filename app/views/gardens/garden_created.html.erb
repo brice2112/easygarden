@@ -2,22 +2,22 @@
 
 <%= render "shared/navbar" %>
 
-<div class="container" data-controller="choose-veggie" >
-  <div class="container" >
-    <h1 class="fw-bold"><%= @garden.name %></h1>
-    <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length * @garden.width %> square meters</h3>
-    <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
-    </div>
+<div class="container" data-controller="choose-veggie">
 
+  <div class="container"  >
+    <div class="container" >
+      <h1 class="fw-bold"><%= @garden.name %></h1>
+      <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length * @garden.width %> square meters</h3>
+      <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
+    </div>
     <%= button_to "Next", implant_path(@garden),
     disabled: true,
     method: :post, params: { implantation: @implantation, counter: params["counter"] },
     "data-choose-veggie-target": "button" %>
-
   </div>
 
   <%# Compartments to be filled by user %>
-  <p>You have <%= @garden.compartments.count %> compartments available</p>
+  <p>Vous pouvez implanter <%= @garden.compartments.count %> compartiments dans votre jardin.</p>
   <div class="container text-center">
     <div class="row row-cols-2">
       <% i = 0 %>
@@ -28,20 +28,44 @@
     </div>
   </div>
 
-  <%# List of choosable vegetables %>
-  <p>Here's the list of what you can plant. Please select your <%= @garden.compartments.count %> favourite vegetables in the list.</p>
-  <div class="justify-content-center">
+  <div class="cards-vege">
     <% @suitable_vegetables.each do |veg| %>
-      <p data-choose-veggie-target="vege" 
-         data-action="click->choose-veggie#chosen" 
-         data-value=<%= veg.name %> >
-        <%= render partial: "shared/cardveg", locals: { veg: veg } %>
-      </p>
+      <div class="flex-item">
+        <div class="card-veg d-flex justify-content-between">
+          <div class="d-flex">
+            <% if veg.photo.key %>
+              <%= cl_image_tag(veg.photo.key, width: 80, height: 80) %>
+            <% end %>
+            <div class="card-veg-infos">
+              <h2><%= link_to "#{veg.name}", vegetable_path(veg.id) %></h2>
+              <p class="card-info-bold"><%= veg.variety %></p>
+              <p class="card-info-light"><%= veg.min_temp %>°C - <%= veg.max_temp %>°C </p>
+              <%# <p class="card-info-light"><%= veg.max_temp %></p>
+            </div>
+          </div>
+          <div class="card-veg-infos d-flex card-select">
+            <button data-action="click->choose-veggie#removeVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">-</button>
+            <span style="color: black" id="counter_<%= veg.id %>">0</span>
+            <button data-action="click->choose-veggie#addVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">+</button>
+          </div>
+        </div>
+      </div>
     <% end %>
+  </div>
+
+  <%# List of choosable vegetables %>
+  <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
+  <div class="justify-content-center">
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
+      <%= form.hidden_field :toto, data: { choose_veggie_target: "field"} %>
+
       <%= form.submit "Next", class: "myButton"  %>
     <% end %>
   </div>
+
+
+
+  <%#  ##################### TEMPORAY ###################### %>
 
   <ul>
     <% @suitable_vegetables.each do |vegetable| %>
@@ -50,9 +74,9 @@
     <% end %>
   </ul>
 
-<%#  ######BELOW IS THE FORM TO SELECT THE VEGGIES#####
-     -- Keys are in the string format
-     -- Can't figure out how to make them symbols ?    %>
+  <%#  ######BELOW IS THE FORM TO SELECT THE VEGGIES#####
+       -- Keys are in the string format
+       -- Can't figure out how to make them symbols ?    %>
 
   <%= form_with url: implant_path(@garden) do |form| %>
     <% i = 0 %>

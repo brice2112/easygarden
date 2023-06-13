@@ -1,5 +1,11 @@
+.cards-vege {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .card-veg {
-  overflow: hidden;
+  // overflow: hidden;
   height: 80px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   display: flex;
