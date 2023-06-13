@@ -21,11 +21,13 @@
 
 <ol>
 
+<div class ="plan"><%# div plan %>
 <% @garden.compartments.each_with_index do |comp, c| %>
-  <div class="container mb-3">
+  <div class="container mb-3"> <%# div compartment: flex, gap... %>
     <li><p>Compartment no <%= c + 1 %></p></li>
     <ul>
     <% comp.implantations.each do |imp|  %>
+      <%# div implatation: petit picto, background ... %>
       <li> <%= link_to "#{imp.vegetable.name}", vegetable_path(imp.vegetable.id) %> : <%= imp.quantity %></li>
 
     <% end %>
@@ -33,3 +35,4 @@
   </div>
   <% end %>
 </ol>
+</div>
