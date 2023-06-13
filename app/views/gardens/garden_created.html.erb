@@ -1,59 +1,49 @@
 <% available_veggie = [] %>
-   <%= render "shared/navbar" %>
-<div class="container">
+<%= render "shared/navbar" %>
 
-  <h1 class="fw-bold"><%= @garden.name %></h1>
-  <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length*@garden.width %> square meters</h3>
-  <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
+<div class="container" data-controller="choose-veggie" >
+  <div class="container" >
+    <h1 class="fw-bold"><%= @garden.name %></h1>
+    <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length * @garden.width %> square meters</h3>
+    <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
 
-  <p>You have <%= @garden.compartments.count %> compartments available</p>
+    <p>You have <%= @garden.compartments.count %> compartments available</p>
 
-
-<div class="container text-center">
-  <div class="row row-cols-2">
-    <% i = 0 %>
-        <% while i < @garden.compartments.count %>
-          <div id="veg<%= i+1 %>" class="col card m-2" style="width: 5rem; height: 5rem"></div>
-          <% i += 1 %>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-
-
-  <p>Here's the list of what you can plant.&#10;&#13;Please select your <%= @garden.compartments.count %> favourite vegetables in the list.</p>
-  <%# <ul>
-    <% @suitable_vegetables.each do |vegetable| %>
-      <%# <li><%= vegetable.name %>
-      <%# <% available_veggie << vegetable.name%>
-    <%# <% end %>
-  <%# </ul> %>
-
-<%#  ######BELOW IS THE FORM TO SELECT THE VEGGIES#####
-     -- Keys are in the string format
-     -- Can't figure out how to make them symbols ?    %>
-
-
-
-
-
-  <div class="container">
-    <div>
-      <% @suitable_vegetables.each do |veg| %>
-        <%# <%= render partial: "shared/cardvegetable", locals: { veg: veg }  %>
-        <div class="bg-success m-3 p-3">
-        <p><%= veg.name %></p>
-          <%= text_field_tag :query, params[:query] %>
-              <button>-</button>
-              <button>+</button>
+    <div class="container text-center" >
+      <div class="row row-cols-2">
+        <% i = 0 %>
+            <% while i < @garden.compartments.count %>
+              <div  id="veg<%= i+1 %>"
+                    class="col card m-2"
+                    style="width: 5rem; height: 5rem"
+                    data-choose-veggie-target="comp">
+                    <p>gne</p>
+              </div>
+              <% i += 1 %>
+            <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
+
+    <p>Here's the list of what you can plant.&#10;&#13;Please select your <%= @garden.compartments.count %> favourite vegetables in the list.</p>
+
+    <div class="container">
+      <div>
+        <% @suitable_vegetables.each_with_index do |veg, index| %>
+          <%# <%= render partial: "shared/cardvegetable", locals: { veg: veg }  %>
+          <div  class="bg-success m-3 p-3"
+                data-choose-veggie-target="vege">
+            <p><%= veg.name %></p>
+            <button data-action="click->choose-veggie#chosen" data-value=<%= veg.name %>> + </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%= button_to "Next", implant_path(@garden),
+    disabled: true,
+    method: :post, params: { implantation: @implantation, counter: params["counter"] },
+    "data-choose-veggie-target": "button" %>
+
   </div>
-
-    <%= form_with url: implant_path(@garden) do |form| %>
-    <%= form.submit "Next" %>
-  <% end %>
-
 </div>
