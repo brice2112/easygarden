@@ -6,7 +6,7 @@
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
       <div class="form-login">
     <%= simple_form_for @garden do |f| %>
-      <%= f.input :name, required: true %>
+      <%= f.input :name, required: true, label: "Nom"  %>
       <%= f.input :length, as: :float, required: true, label: "Longueur" %>
       <%= f.input :width, as: :float, required: true, label: "Largeur" %>
       <%= f.input :location, as: :string, required: true, label: "Localisation" %>
@@ -21,4 +21,3 @@
     </div>
   </div>
 </div>
-
