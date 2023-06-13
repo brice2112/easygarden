@@ -21,7 +21,57 @@
               </div>
 
               <div class="row mt-3 display-flex">
-                <p><strong>Description</strong> : <%= @vegetable.description %></p>
+                <div class="">
+
+                    <p><strong>Description</strong> : </p>
+
+                    <p class="truncate description"> <%= @vegetable.description %> </p>
+                    <button class="myButtonVoir">+</button>
+
+              <script>
+                const clicate = () => {
+                  const element = document.querySelector(".description");
+                  element.classList.toggle("truncate");
+                  console.log(element);
+                ;}
+
+                const button = document.querySelector(".myButtonVoir");
+                button.addEventListener("click", clicate);
+              </script>
+
+                    <%# <script>
+                    var descriptionElements = document.getElementsByClassName("description");
+                    for (var i = 0; i < descriptionElements.length; i++) {
+                    var descriptionElement = descriptionElements[i];
+                    var text = descriptionElement.textContent;
+
+                      if (text.length > 200) {
+                        descriptionElement.classList.add("truncate");
+                        descriptionElement.textContent = text.substring(0, 200) + "...";
+                      }
+                    }
+                      </script> %>
+                </div>
+
+                  <%# <div class="description">
+                      <button class="collapsed-text">-</button>
+                      <button class="expanded-button">+</button>
+
+                        <script>
+                          var descriptionElement = document.querySelector(".description");
+                          var expandButton = descriptionElement.querySelector(".expand-button");
+                          var collapsedText = descriptionElement.querySelector(".collapsed-text");
+
+                          expandButton.addEventListener("click", function() {
+                            if (collapsedText.style.display === "none") {
+                              collapsedText.style.display = "block";
+                            } else {
+                              collapsedText.style.display = "none";
+                            }
+                          });
+                        </script> %>
+                  </div>
+                </div>
               </div>
 
             <div class="row">
