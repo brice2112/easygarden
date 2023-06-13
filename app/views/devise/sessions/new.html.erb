@@ -9,7 +9,7 @@
       <div class="form-login">
       <%= f.input :email, required: false, autofocus: true, placeholder: "" %>
       <%= f.input :password, required: false, placeholder: "" %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, label: "tot",  as: :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
