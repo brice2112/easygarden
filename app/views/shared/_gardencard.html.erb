@@ -1,5 +1,6 @@
 <div class="cards-garden">
   <h1 class="fw-bold"><%= @garden.name %></h1>
-  <p>Surface : <%= ( @garden.length * @garden.width ).truncate %> m²</p>
-  <p>Température moyenne : <%= @garden.mean_temperature %> °C</p>
+  <p style="font-weight:bold"><%= @garden.location %></p>
+  <p style="font-size:14px">Surface : <%= ( @garden.length * @garden.width ).truncate %> m²</p>
+  <p style="font-size:14px">Température moyenne : <%= @garden.mean_temperature %> °C</p>
 </div>

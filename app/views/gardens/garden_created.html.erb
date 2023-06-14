@@ -3,7 +3,6 @@
 <%= render "shared/navbar" %>
 <%= render "shared/gardencard", :locals => { :garden => @garden } %>
 
-
 <div  class="container"
       data-controller="choose-veggie"
       data-choose-veggie-compartments-count-value="<%= @garden.compartments.count%>">
