@@ -60,11 +60,8 @@ class GardensController < ApplicationController
       @choices = params.select { |key, value| key.to_s.match("vegetable") }
       @array_of_veggie = @choices.values
     end
-    p "========================================================================="
-    p @array_of_veggie
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
     redirect_to garden_implanted_path(@garden, array_of_veggie: @array_of_veggie, implantation: @implantation, counter: @implantation.first.count)
-    # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
   end
 
   def garden_implanted
@@ -148,17 +145,8 @@ class GardensController < ApplicationController
     @vegetables_for_weather
   end
 
-# Regenerate a bi-dimensional array from the flattened one sent through params
-  def restructure_implantation_array(implantation, counter)
-    restructured_implantation = []
-    flat_implant = implantation.flatten
-    flat_implant.each_slice(counter.to_i) do |compartment|
-      restructured_implantation << compartment
-    end
-    return restructured_implantation
-  end
 
-####### Garden implantation ##########
+  ####### Garden implantation ##########
   def number_of_implantations(garden_length)
     imp_num = garden_length
     imp_num.truncate
@@ -180,16 +168,6 @@ class GardensController < ApplicationController
       end
     end
     implantation
-  end
-
-  def get_veg_array(chosen_vegetables)
-    arr = chosen_vegetables.split(",")
-    result = []
-    arr.each do |veg_id|
-      veg = Vegetable.find_by(id: veg_id).name
-      result.append(veg)
-    end
-    result
   end
 
   def get_number_of_implants(garden_length)
@@ -262,4 +240,29 @@ class GardensController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :body, :photo)
   end
+
+  
+########### Miscellanous Methods ###########################
+
+  # Generate an array of names from a string containing #ids
+  def get_veg_array(chosen_vegetables)
+    arr = chosen_vegetables.split(",")
+    result = []
+    arr.each do |veg_id|
+      veg = Vegetable.find_by(id: veg_id).name
+      result.append(veg)
+    end
+    result
+  end
+
+  # Regenerate a bi-dimensional array from the flattened one sent through params
+    def restructure_implantation_array(implantation, counter)
+      restructured_implantation = []
+      flat_implant = implantation.flatten
+      flat_implant.each_slice(counter.to_i) do |compartment|
+        restructured_implantation << compartment
+      end
+      return restructured_implantation
+    end
+
 end
