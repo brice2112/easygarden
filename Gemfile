@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Devise gem for authentication
 gem "devise"
 
+# Awesome Print
+gem 'awesome_print'
+
 # Geocoder for translating address into GPS coordinates
 gem "geocoder"
 

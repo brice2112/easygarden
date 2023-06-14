@@ -16,7 +16,7 @@
                 <% if veggie.to_s != "" %>
                   <% vegetable = Vegetable.find_by(name: veggie)  %>
                   <%= cl_image_tag(vegetable.photo.key, width: 80, height: 80) %>
-                  <div class="centered">
+                  <div class="left">
                     <%= link_to "#{vegetable.name}", vegetable_path(vegetable.id) %>
                   </div>
                 <% end %>
