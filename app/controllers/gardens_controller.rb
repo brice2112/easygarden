@@ -101,7 +101,6 @@ class GardensController < ApplicationController
     comp_num.to_i
   end
 
-
 ####### weather ##########
   def get_gps_coord(address)
     output = []
@@ -244,8 +243,8 @@ class GardensController < ApplicationController
       imp_with_qty[c] = []
       compartment.each_with_index do |vegetable, i|
         implant_length = garden_length / number_of_implants
-        implant_area = implant_length * comp_width
-        qty = get_quantity(vegetable, implant_area)
+        implant_area = (implant_length * comp_width).truncate
+        qty = get_quantity(vegetable, implant_area).truncate
         imp_with_qty[c][i] = { name: vegetable, qty: }
       end
     end
