@@ -1,14 +1,4 @@
-<div class="container">
-  <div class="row">
-    <h1 class="text-center mt-4"><strong><%= @garden.name %></strong></h1>
-    <div class="col col-xs-12 col-sm-4 col-sm-offset-4" style="margin-top: 20px;">
-      <p><strong>Dimensions:</strong> <%= @garden.length %>m x <%= @garden.width %>m</p>
-      <p><strong>Surface:</strong> <%= @garden.length * @garden.width %>m²</p>
-      <p><strong>Adresse:</strong> <%= @garden.location %></p>
-    </div>
-    <h3 class="text-center mt-4" style="margin-bottom: -30px;"><strong>Votre plan final</strong></h3>
-  </div>
-</div>
+<%= render "shared/gardencard", :locals => { :garden => @garden } %>
 
 <div class="plan" style="background-image: url('<%= asset_path('grass2.jpg') %>')">
   <% @garden.compartments.each_with_index do |comp, c| %>
@@ -25,6 +15,8 @@
       <% end %>
     </div>
   <% end %>
-</div>
 
 <%= render "shared/navbar" %>
+
+
+
