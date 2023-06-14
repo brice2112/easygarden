@@ -1,13 +1,9 @@
 <% available_veggie = [] %>
 
 <%= render "shared/navbar" %>
+<%= render "shared/gardencard", :locals => { :garden => @garden } %>
 
 <div class="container" data-controller="choose-veggie">
-<div class="cards-garden">
-  <h1 class="fw-bold"><%= @garden.name %></h1>
-  <p>Surface : <%= @garden.length * @garden.width %> m²</p>
-  <p>Température moyenne : <%= @garden.mean_temperature %> °C</p>
-</div>
 
   <%# List of Suitable Vegetables Cards %>
 
@@ -29,7 +25,7 @@
           </div>
           <div class="card-veg-infos d-flex card-select">
             <button data-action="click->choose-veggie#removeVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">-</button>
-            <span style="color: black" id="counter_<%= veg.id %>">0</span>
+            <span class="text-center" style="color: black; width: 32px;" id="counter_<%= veg.id %>">0</span>
             <button data-action="click->choose-veggie#addVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">+</button>
           </div>
         </div>
