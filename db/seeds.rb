@@ -78,7 +78,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Pomme de terre",
-  variety: "Solanaceae",
+  variety: "Solanacées",
   min_temp: 10,
   max_temp: 20,
   atmospheric_humidity: 50,
@@ -93,7 +93,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Chou",
-  variety: "brassicacées",
+  variety: "Brassicacées",
   min_temp: 7,
   max_temp: 32,
   atmospheric_humidity: 50,
@@ -108,7 +108,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Brocoli",
-  variety: "crucifères",
+  variety: "Crucifères",
   min_temp: 7,
   max_temp: 32,
   atmospheric_humidity: 50,
@@ -124,7 +124,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Chou-fleur",
-  variety: "crucifères",
+  variety: "Crucifères",
   min_temp: 7,
   max_temp: 32,
   atmospheric_humidity: 50,
@@ -154,7 +154,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Laitue",
-  variety: "Asteraceae",
+  variety: "Asteracées",
   min_temp: 5,
   max_temp: 30,
   atmospheric_humidity: 50,
@@ -169,7 +169,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Petit pois",
-  variety: "Fabaceae",
+  variety: "Fabacées",
   min_temp: 5,
   max_temp: 30,
   atmospheric_humidity: 50,
@@ -199,7 +199,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Poivron",
-  variety: "Capsicum annuum",
+  variety: "Solanacées",
   min_temp: 18,
   max_temp: 26,
   atmospheric_humidity: 50,
@@ -214,7 +214,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Courgette",
-  variety: "Cucurbitaceae",
+  variety: "Cucurbitacées",
   min_temp: 21,
   max_temp: 40,
   atmospheric_humidity: 50,
@@ -229,7 +229,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Maïs",
-  variety: "Cucurbitaceae",
+  variety: "Cucurbitacées",
   min_temp: 12,
   max_temp: 28,
   atmospheric_humidity: 50,
@@ -244,7 +244,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Tomate",
-  variety: "Solanaceae",
+  variety: "Solanacées",
   min_temp: 12,
   max_temp: 37,
   atmospheric_humidity: 50,
@@ -259,7 +259,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Persil",
-  variety: "Apiaceae",
+  variety: "Apiacées",
   min_temp: 7,
   max_temp: 27,
   atmospheric_humidity: 50,
@@ -274,7 +274,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Basilic",
-  variety: "Lamiaceae",
+  variety: "Lamiacées",
   min_temp: 11,
   max_temp: 32,
   atmospheric_humidity: 50,
@@ -289,7 +289,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Oignon",
-  variety: "Liliaceae",
+  variety: "Liliacées",
   min_temp: 8,
   max_temp: 25,
   atmospheric_humidity: 50,
@@ -304,7 +304,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Poireau",
-  variety: "Liliaceae",
+  variety: "Liliacées",
   min_temp: 3,
   max_temp: 25,
   atmospheric_humidity: 50,
@@ -319,7 +319,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Citron",
-  variety: "",
+  variety: "Rutacées",
   min_temp: 18,
   max_temp: 42,
   atmospheric_humidity: 50,
@@ -334,7 +334,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Avocat",
-  variety: "",
+  variety: "Lauracées",
   min_temp: 23,
   max_temp: 42,
   atmospheric_humidity: 50,
@@ -349,7 +349,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Banane",
-  variety: "",
+  variety: "Bananées",
   min_temp: 25,
   max_temp: 45,
   atmospheric_humidity: 50,
@@ -364,7 +364,7 @@ vegetable.save
 
 vegetable = Vegetable.new(
   name: "Mangue",
-  variety: "",
+  variety: "Anacardiacées",
   min_temp: 29,
   max_temp: 46,
   atmospheric_humidity: 50,
@@ -524,6 +524,11 @@ Synergy.create!(first_vegetable: Vegetable.find_by(name: "Oignon"), second_veget
 Synergy.create!(first_vegetable: Vegetable.find_by(name: "Oignon"), second_vegetable: Vegetable.find_by(name: "Persil"))
 Synergy.create!(first_vegetable: Vegetable.find_by(name: "Poireau"), second_vegetable: Vegetable.find_by(name: "Persil"))
 
+#Pois / Carotte / Persil
+
+Synergy.create!(first_vegetable: Vegetable.find_by(name: "Petit pois"), second_vegetable: Vegetable.find_by(name: "Carotte"))
+Synergy.create!(first_vegetable: Vegetable.find_by(name: "Petit pois"), second_vegetable: Vegetable.find_by(name: "Persil"))
+Synergy.create!(first_vegetable: Vegetable.find_by(name: "Carotte"), second_vegetable: Vegetable.find_by(name: "Persil"))
 
 ########GARDENS###############
 

@@ -60,6 +60,8 @@ class GardensController < ApplicationController
       @choices = params.select { |key, value| key.to_s.match("vegetable") }
       @array_of_veggie = @choices.values
     end
+    p "========================================================================="
+    p @array_of_veggie
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
     redirect_to garden_implanted_path(@garden, array_of_veggie: @array_of_veggie, implantation: @implantation, counter: @implantation.first.count)
     # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
@@ -164,9 +166,11 @@ class GardensController < ApplicationController
   end
 
   def get_synergies(chosen_vegetables, vegetables_for_weather, garden_length)
+    vegetables_array = get_veg_array(chosen_vegetables)
     number_of_implants = get_number_of_implants(garden_length)
     implantation = []
-    chosen_vegetables.each_with_index do |vegetable, n|
+    p vegetables_array
+    vegetables_array.each_with_index do |vegetable, n|
       implantation[n] = []
       implantation[n][0] = vegetable
       i = 0
@@ -177,6 +181,16 @@ class GardensController < ApplicationController
       end
     end
     implantation
+  end
+
+  def get_veg_array(chosen_vegetables)
+    arr = chosen_vegetables.split(",")
+    result = []
+    arr.each do |veg_id|
+      veg = Vegetable.find_by(id: veg_id).name
+      result.append(veg)
+    end
+    result
   end
 
   def get_number_of_implants(garden_length)
