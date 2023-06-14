@@ -3,16 +3,17 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="choose-veggie"
 export default class extends Controller {
   static targets = ["comp", "field"]
+  static values = {compartmentsCount: Number}
 
   connect() {
     this.counter = 0
-    this.compCount = this.compTargets.length;
     this.vegetable_ids = []
     console.log(this.fieldTarget);
+    console.log("Bonjour");
   }
 
   addVegetable(event) {
-    if (this.counter >= this.compCount) return;
+    if (this.counter >= this.compartmentsCountValue) return;
 
     console.log("add");
     const id = event.currentTarget.dataset.id;  //gets the #id of the vegetable in the card
