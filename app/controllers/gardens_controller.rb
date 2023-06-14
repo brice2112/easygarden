@@ -47,7 +47,7 @@ class GardensController < ApplicationController
   end
 
   def garden_created
-    gps_coords = get_gps_coord(@garden.location)
+    gps_coords = get_gps_coord(@garden.address)
     mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
     @garden.update(mean_temperature: mean_temp)
     @suitable_vegetables = set_vegetables_for_weather
@@ -93,7 +93,7 @@ class GardensController < ApplicationController
   end
 
   def garden_params
-    params.require(:garden).permit(:length, :width, :location, :name, :choices)
+    params.require(:garden).permit(:length, :width, :address, :name, :choices)
   end
 
   def number_of_compartments(garden_width)

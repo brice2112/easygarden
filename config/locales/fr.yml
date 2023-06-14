@@ -5,12 +5,11 @@ fr:
         name: Nom
         length: Longueur
         width: Largeur
-        location: Localisation
+        address: Localisation
       user:
         email: Email
         password: Mot de passe
         password_confirmation: Confirmation de mot de passe
-
     errors:
       messages:
         and: et
@@ -25,7 +24,7 @@ fr:
             width:
               blank: est nécessaire
               not_a_number: doit être un nombre
-            location:
+            address:
               blank: est nécessaire
         user:
           attributes:
