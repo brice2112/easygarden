@@ -10,10 +10,6 @@
       <h3 class="fw-lighter fst-italic fs-6" >Area : <%= @garden.length * @garden.width %> square meters</h3>
       <h3 class="fw-lighter fst-italic fs-6" >Average temperature : <%= @garden.mean_temperature %> °C</h3>
     </div>
-    <%= button_to "Next", implant_path(@garden),
-    disabled: true,
-    method: :post, params: { implantation: @implantation, counter: params["counter"] },
-    "data-choose-veggie-target": "button" %>
   </div>
 
   <%# Compartments to be filled by user %>
@@ -28,6 +24,7 @@
     </div>
   </div>
 
+  <%# List of Suitable Vegetables Cards %>
   <div class="cards-vege">
     <% @suitable_vegetables.each do |veg| %>
       <div class="flex-item">
@@ -40,7 +37,6 @@
               <h2><%= link_to "#{veg.name}", vegetable_path(veg.id) %></h2>
               <p class="card-info-bold"><%= veg.variety %></p>
               <p class="card-info-light"><%= veg.min_temp %>°C - <%= veg.max_temp %>°C </p>
-              <%# <p class="card-info-light"><%= veg.max_temp %></p>
             </div>
           </div>
           <div class="card-veg-infos d-flex card-select">
@@ -57,8 +53,7 @@
   <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
   <div class="justify-content-center">
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
-      <%= form.hidden_field :toto, data: { choose_veggie_target: "field"} %>
-
+      <%= form.hidden_field :chosen_vegetables, data: { choose_veggie_target: "field"} %>
       <%= form.submit "Next", class: "myButton"  %>
     <% end %>
   </div>
