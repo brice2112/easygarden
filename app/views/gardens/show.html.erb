@@ -1,5 +1,6 @@
+<div class="container">
 <%= render "shared/gardencard", :locals => { :garden => @garden } %>
-
+<h2 class="text-center mt-4" style="margin-bottom: -30px;"><strong>Mon plan d'implantation</strong></h2>
 <div class="plan" style="background-image: url('<%= asset_path('grass2.jpg') %>')">
   <% @garden.compartments.each_with_index do |comp, c| %>
     <div class="compartment" style="background-image: url('<%= asset_path('terre.jpg') %>');">
@@ -7,13 +8,37 @@
         <% if imp.quantity > 0 %>
           <%= link_to vegetable_path(imp.vegetable.id) do %>
             <div class="implantation">
-              <span style="color: white"><%= imp.quantity %></span>
-              <img src="<%= image_path("#{imp.vegetable.name}.svg") %>" width="25" height="25" alt="<%= imp.vegetable.name %>" style="filter: brightness(0) invert(1);">
+              <span class="quantity"><%= imp.quantity %></span>
+              <div class="centered">
+                <img src="<%= image_path("#{imp.vegetable.name}.svg") %>" width="25" height="25" alt="<%= imp.vegetable.name %>" style="filter: brightness(0) invert(1);">
+              </div>
             </div>
           <% end %>
         <% end %>
       <% end %>
     </div>
   <% end %>
+</div>
 
+  <h3 class="text-center mt-4"><strong>Liste des légumes</strong></h3>
+
+    <% @garden.compartments.each do |comp| %>
+      <% comp.implantations.each do |imp| %>
+        <div class="row  mx-3 garden-item border border-success p-3 mb-1 rounded" style= "background-color:#5AC698">
+          <div class="col text-center">
+            <img src="<%= image_path("#{imp.vegetable.name}.svg") %>" width="25" height="25" alt="<%= imp.vegetable.name %>">
+          </div>
+
+          <div class="col text-center" >
+            <strong><%= link_to imp.vegetable.name, vegetable_path(imp.vegetable) %></strong>
+          </div>
+          <div class="col text-center">
+            <span><strong><%= imp.quantity %> unités</strong></span>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+
+</div>
 <%= render "shared/navbar" %>
