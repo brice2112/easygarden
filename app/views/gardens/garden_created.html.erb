@@ -2,8 +2,10 @@
 
 <%= render "shared/navbar" %>
 
-<div class="container" data-controller="choose-veggie">
-<div class="cards-garden">
+<div  class="container"
+      data-controller="choose-veggie"
+      data-choose-veggie-compartments-count-value="<%= @garden.compartments.count%>">
+  <div class="cards-garden">
   <h1 class="fw-bold"><%= @garden.name %></h1>
   <p>Surface : <%= @garden.length * @garden.width %> m²</p>
   <p>Température moyenne : <%= @garden.mean_temperature %> °C</p>

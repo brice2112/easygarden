@@ -162,7 +162,7 @@ class GardensController < ApplicationController
 ####### Garden implantation ##########
   def number_of_implantations(garden_length)
     imp_num = garden_length
-    imp_num.to_i
+    imp_num.truncate
   end
 
   def get_synergies(chosen_vegetables, vegetables_for_weather, garden_length)
