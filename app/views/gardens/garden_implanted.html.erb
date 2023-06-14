@@ -1,9 +1,8 @@
-   <%= render "shared/navbar" %>
-<div class="container">
+<%= render "shared/navbar" %>
 
-<div class="cards-garden">
-  <h1 class="fw-bold"><%= @garden.name %></h1>
-</div>
+<%= render "shared/gardencard", :locals => { :garden => @garden } %>
+
+<div class="container">
 
   <p>Voici ce qu'on vous propose de planter:</p>
 

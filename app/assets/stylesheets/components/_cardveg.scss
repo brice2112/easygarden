@@ -2,19 +2,19 @@
   // background-color: #5AC698;
   background: linear-gradient(-45deg, #F4F4F4, #5AC698);
   margin-block: 6px;
-  padding-inline: 2px;
+  padding-inline: 4px;
   padding-block: 12px;
   color: white;
 }
 
 .cards-garden p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: 0.7;
   line-height: 1;
   // opacity: .7;
   align-items: self-start;
   margin-bottom: 0;
-  margin-top: 12px;
+  margin-top: 6px;
 }
 
 .cards-vege {
@@ -82,13 +82,13 @@
 
 .card-veg .card-select {
   margin-top: 12px;
-  margin-right: 12px;
   padding: 8px;
-  color: white;
+  color: rgb(20, 100, 74);
+  font-weight: 600px;
   // background-color: rgb(20, 100, 74);
   border-radius: 8px;
-  text-align: right;
-  justify-content: center;
+  align-items: center;
+  justify-content: center;  
 }
 
 .card-veg .card-rating {
@@ -98,10 +98,6 @@
   margin-right: 12px
 }
 
-.card-veg .select-input{
-  width: 30px;
-  margin-inline: 2px;
-}
 
 .card-veg .select-button {
   background-color:#5AC698;
