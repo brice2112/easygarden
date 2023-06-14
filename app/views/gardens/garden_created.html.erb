@@ -5,7 +5,7 @@
 
 <div  class="container"
       data-controller="choose-veggie"
-      data-choose-veggie-compartments-count-value="<%= @garden.compartments.count%>">
+      data-choose-veggie-compartments-count-value="<%= @garden.compartments.count%>">   <%#sending value to JS Controller%>
 
   <%# List of Suitable Vegetables Cards %>
 
@@ -26,9 +26,20 @@
             </div>
           </div>
           <div class="card-veg-infos d-flex card-select">
-            <button data-action="click->choose-veggie#removeVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">-</button>
-            <span class="text-center" style="color: black; width: 32px;" id="counter_<%= veg.id %>">0</span>
-            <button data-action="click->choose-veggie#addVegetable" data-id=<%= veg.id %> class="select-button" style="height: 2rem; width: 2rem;">+</button>
+            <button data-action="click->choose-veggie#removeVegetable"
+                    data-choose-veggie-target="removeButton"
+                    data-id=<%= veg.id %>
+                    class="select-button"
+                    disabled=true
+                    style="height: 2rem; width: 2rem;">-</button>
+            <span class="text-center"
+                  style="color: black; width: 32px;"
+                  id="counter_<%= veg.id %>">0</span>
+            <button data-action="click->choose-veggie#addVegetable"
+                    data-choose-veggie-target="addButton"
+                    data-id=<%= veg.id %>
+                    class="select-button"
+                    style="height: 2rem; width: 2rem;">+</button>
           </div>
         </div>
       </div>
@@ -38,7 +49,7 @@
   <div class="justify-content-center">
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
       <%= form.hidden_field :array_of_veggie, data: { choose_veggie_target: "field"} %>
-      <%= form.submit "Suivant", class: "myButton"  %>
+      <%= form.submit "Suivant", class: "myButton", disabled: true, data: { choose_veggie_target: "nextButton"} %>
     <% end %>
   </div>
 </div>

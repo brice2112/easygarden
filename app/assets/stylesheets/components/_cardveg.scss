@@ -113,6 +113,10 @@
     margin-inline: 2px;
   }
 
+  .card-veg .select-button[disabled] {
+    opacity: 0.5;
+  }
+
   .card-comp {
     padding: 4px;
     font-family: 'Roboto', sans-serif;
