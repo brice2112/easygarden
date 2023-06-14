@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'awesome_print'
 # require_relative '../helpers/implant'
 
 class GardensController < ApplicationController
@@ -60,8 +61,6 @@ class GardensController < ApplicationController
       @choices = params.select { |key, value| key.to_s.match("vegetable") }
       @array_of_veggie = @choices.values
     end
-    p "========================================================================="
-    p @array_of_veggie
     @implantation = get_synergies(@array_of_veggie, @vegetables_for_weather, @garden.length)
     redirect_to garden_implanted_path(@garden, array_of_veggie: @array_of_veggie, implantation: @implantation, counter: @implantation.first.count)
     # redirect_to validate_garden_path(@garden, implantation: @implantation, counter: @implantation.first.count), method: :post
@@ -243,8 +242,8 @@ class GardensController < ApplicationController
       imp_with_qty[c] = []
       compartment.each_with_index do |vegetable, i|
         implant_length = garden_length / number_of_implants
-        implant_area = (implant_length * comp_width).truncate
-        qty = get_quantity(vegetable, implant_area).truncate
+        implant_area = (implant_length * comp_width)
+        qty = get_quantity(vegetable, implant_area)
         imp_with_qty[c][i] = { name: vegetable, qty: }
       end
     end
@@ -256,7 +255,7 @@ class GardensController < ApplicationController
     return if vegetable.nil?
 
     footprint = vegetable.footprint
-    (implant_area / footprint).truncate
+    (implant_area / footprint)
   end
 
   def article_params
