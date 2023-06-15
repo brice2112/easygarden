@@ -1,7 +1,7 @@
+<%= render "shared/navbar" %>
+<%= render "shared/gardencard", :locals => { :garden => @garden } %>
+
 <div class="container">
-
-
-  <%= render "shared/gardencard", :locals => { :garden => @garden } %>
 
   <h2 class="text-center mt-4" style="margin-bottom: -30px; margin-left: 14px;"><strong>Mon plan d'implantation</strong></h2>
 
@@ -66,7 +66,9 @@
           <strong><%= imp.vegetable.prix_unitaire %></strong>
         </div>
         <div class="col text-center">
+
           <span><strong><%= vegetable_price %></strong></span>
+
         </div>
       </div>
     <% end %>
@@ -85,5 +87,3 @@
   </div>
 </div>
 </div>
-
-<%= render "shared/navbar" %>
