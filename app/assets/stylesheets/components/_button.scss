@@ -1,5 +1,4 @@
 .myButton {
-
 background-color:#5AC698;
 	border-radius:30px;
 	border:1px solid #00B6A1;
@@ -13,11 +12,31 @@ background-color:#5AC698;
 	text-decoration:none;
   text-align: center;
   margin-top: 20px;
+  width: 100%;
 }
+
+.myButtonCancel {
+  // background-color:#5AC698;
+    border-radius:30px;
+    border:1px solid #00B6A1;
+    display:inline-block;
+    cursor:pointer;
+    color:#5AC698;
+    font-family: 'Roboto', sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    padding:12px 31px;
+    text-decoration:none;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+
 .myButton:hover {
 	background-color: #00B6A1;
   color: black;
 }
+
 .myButton:active {
 	position:relative;
 	top:1px;
@@ -29,21 +48,21 @@ background-color:#5AC698;
 }
 
 .myformButton {
-
   background-color:#5AC698;
-    border-radius:8px;
-    border:1px solid #00B6A1;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size:18px;
-    padding:12px 31px;
-    text-decoration:none;
-    text-align: center;
-    margin-top: 20px;
+  border-radius:8px;
+  border:1px solid #00B6A1;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size:18px;
+  padding:12px 31px;
+  text-decoration:none;
+  text-align: center;
+  margin-top: 20px;
   }
+
   .myformButton:hover {
     background-color: #00B6A1;
     color: black;
