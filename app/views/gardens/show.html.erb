@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 <%= render "shared/gardencard", :locals => { :garden => @garden } %>
 
-<div class="container">
+<div class="container no-padding">
 
   <h2 class="text-center mt-4" style="margin-bottom: -30px; margin-left: 14px;"><strong>Mon plan d'implantation</strong></h2>
 
@@ -47,32 +47,30 @@
 
   <% total_price = 0 %>
 
-<% @garden.compartments.each do |comp| %>
-  <% comp.implantations.each do |imp| %>
-    <% if imp.quantity > 0 %>
-      <% vegetable_price = imp.vegetable.prix_unitaire * imp.quantity %>
-      <% total_price += vegetable_price %>
-      <div class="row mx-3 garden-item border border-success p-3 mb-1 rounded" style="background-color: rgba(90, 198, 152, 0.1);">
-        <div class="col text-center">
-          <img src="<%= image_path("#{imp.vegetable.name}.svg") %>" width="25" height="25" alt="<%= imp.vegetable.name %>">
-        </div>
-        <div class="col text-center">
-          <strong><%= link_to imp.vegetable.name, vegetable_path(imp.vegetable) %></strong>
-        </div>
-        <div class="col text-center">
-          <span><strong><%= imp.quantity %></strong></span>
-        </div>
-        <div class="col text-center">
-          <strong><%= imp.vegetable.prix_unitaire %></strong>
-        </div>
-        <div class="col text-center">
+<% @quantity_hash.each do |vegetable_name, data| %>
+  <% quantity = data[:quantity] %>
+  <% unitary_price = data[:unitary_price] %>
+  <% vegetable = Vegetable.find_by(name: vegetable_name) %>
+  <% vegetable_price = unitary_price * quantity %>
+  <% total_price += vegetable_price %>
 
-          <span><strong><%= vegetable_price %></strong></span>
-
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  <div class="row mx-3 garden-item border border-success p-3 mb-1 rounded" style="background-color: rgba(90, 198, 152, 0.1);">
+    <div class="col text-center">
+      <img src="<%= image_path("#{vegetable.name}.svg") %>" width="25" height="25" alt="<%= vegetable.name %>">
+    </div>
+    <div class="col text-center">
+      <strong><%= link_to vegetable.name, vegetable_path(vegetable) %></strong>
+    </div>
+    <div class="col text-center">
+      <span><strong><%= quantity %></strong></span>
+    </div>
+    <div class="col text-center">
+      <span><strong><%= unitary_price %></strong></span>
+    </div>
+    <div class="col text-center">
+      <span><strong><%= vegetable_price.truncate(2) %>€</strong></span>
+    </div>
+  </div>
 <% end %>
 
 <div class="row mx-3 garden-item border border-success p-3 mb-1 rounded" style="background-color: rgba(90, 198, 152, 0.1);">
@@ -83,7 +81,6 @@
   <div class="col"></div>
   <div class="col"></div>
   <div class="col text-center">
-    <strong><%= total_price %>€</strong>
+    <strong><%= total_price.truncate(2) %>€</strong>
   </div>
-</div>
 </div>
