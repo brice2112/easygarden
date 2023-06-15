@@ -15,7 +15,19 @@ class GardensController < ApplicationController
   end
 
   def show
-    @vegetable = Vegetable.first
+    @quantity_hash = Hash.new(0)
+    @garden.compartments.each do |comp|
+      comp.implantations.each do |imp|
+        vegetable_name = imp.vegetable.name
+        quantity = imp.quantity
+        unitary_price = imp.vegetable.prix_unitaire
+        if @quantity_hash.key?(vegetable_name)
+          @quantity_hash[vegetable_name][:quantity] += quantity
+        else
+          @quantity_hash[vegetable_name] = { quantity: quantity, unitary_price: unitary_price }
+        end
+      end
+    end
   end
 
   def new
