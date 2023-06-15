@@ -3,18 +3,18 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
-      <div class="form-login">
+      <div class="form-login border border-success p-3 mb-3">
     <%= simple_form_for @garden do |f| %>
-      <%= f.input :name, required: true, label: "Nom"  %>
-      <%= f.input :length, as: :float, required: true, label: "Longueur" %>
-      <%= f.input :width, as: :float, required: true, label: "Largeur" %>
+      <%= f.input :name, required: true, label: "Nom", placeholder: "Marguerite Dupont"  %>
+      <%= f.input :length, as: :float, required: true, label: "Longueur", placeholder: "2" %>
+      <%= f.input :width, as: :float, required: true, label: "Largeur", placeholder: "2" %>
       <%= f.input :address,
         input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
 
-      <%= f.button :submit, "Suivant", class: "myButton" %>
-
+   <%= f.button :submit, "Suivant", class: "buttonnext" %>
+        <%# <%= image_tag("picto_delete.svg") %>
     <% end %>
         </div>
     </div>

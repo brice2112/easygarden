@@ -4,7 +4,7 @@
       <h1 class="text-center mt-4"><strong>Mes jardins</strong></h1>
       <p class="text-center mt-4"><%= current_user.email %></p>
       <% @gardens.each do |garden| %>
-        <div class="garden-item border border-success p-3 mb-3">
+        <div class="garden-item border border-success p-3 mb-3 ">
           <h3 class="mb-0"><strong><%= link_to garden.name, garden_path(garden.id), class: "linksstyle" %></strong></h3>
           <p class="mb-2"><%= garden.address %></p>
           <%= button_to "Supprimer", garden_path(garden.id), method: :delete, data: { confirm: "Confirme ton choix" }, class: "myButtondb" %>
