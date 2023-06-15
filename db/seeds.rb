@@ -97,7 +97,7 @@ vegetable = Vegetable.new(
   semitype: "graine",
   description: "Le cannabis est une plante à fleurs qui produit des bourgeons riches en cannabinoïdes, notamment le THC et le CBD. Le cannabis est consommé à des fins récréatives et médicinales. Il est souvent fumé, vaporisé ou consommé sous forme d'huile. Le cannabis est connu pour ses effets psychoactifs et ses propriétés médicinales. Il est utilisé pour traiter les symptômes de nombreuses maladies, notamment la douleur, l'anxiété, la dépression, les nausées et les vomissements, les convulsions, les troubles du sommeil et bien d'autres encore.Smoke WEED everyday🤪"
 )
-file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312702/carotte_jt7fhf.jpg')
+file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686831134/weed_sctkyy.jpg')
 vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
 

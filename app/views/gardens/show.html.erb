@@ -3,7 +3,7 @@
 
 <div class="container">
 
-  <h2 class="text-left mt-4" style="margin-bottom: -30px; margin-left: 14px;"><strong>Mon plan d'implantation</strong></h2>
+  <h2 class="text-center mt-4" style="margin-bottom: -30px; margin-left: 14px;"><strong>Mon plan d'implantation</strong></h2>
 
   <div class="plan" style="background-image: url('<%= asset_path('grass2.jpg') %>')">
     <% @garden.compartments.each_with_index do |comp, c| %>
@@ -27,14 +27,35 @@
 
   <h3 class="text-center mt-4"><strong>Ma liste de courses</strong></h3>
 
-  <% @garden.compartments.each do |comp| %>
-    <% comp.implantations.each do |imp| %>
-      <div class="row mx-3 garden-item border border-success p-3 mb-1 rounded" style="background-color: rgba(90, 198, 152, 0.1);">
+    <div class="row mx-3 single-line">
+      <div class="col text-center">
+        <strongs class="single-line">Symbole</strong>
+      </div>
+      <div class="col text-center">
+         <strongs class="single-line">Nom</strong>
+      </div>
+      <div class="col text-center">
+         <strongs class="single-line">Quantité</strong>
+      </div>
+      <div class="col text-center">
+         <strongs class="single-line">Prix unitaire(€)</strong>
+      </div>
+      <div class="col text-center">
+         <strongs class="single-line">Prix total(€)</strong>
+      </div>
+    </div>
 
+  <% total_price = 0 %>
+
+<% @garden.compartments.each do |comp| %>
+  <% comp.implantations.each do |imp| %>
+    <% if imp.quantity > 0 %>
+      <% vegetable_price = imp.vegetable.prix_unitaire * imp.quantity %>
+      <% total_price += vegetable_price %>
+      <div class="row mx-3 garden-item border border-success p-3 mb-1 rounded" style="background-color: rgba(90, 198, 152, 0.1);">
         <div class="col text-center">
           <img src="<%= image_path("#{imp.vegetable.name}.svg") %>" width="25" height="25" alt="<%= imp.vegetable.name %>">
         </div>
-
         <div class="col text-center">
           <strong><%= link_to imp.vegetable.name, vegetable_path(imp.vegetable) %></strong>
         </div>
@@ -42,20 +63,27 @@
           <span><strong><%= imp.quantity %></strong></span>
         </div>
         <div class="col text-center">
-          <strong><%=imp.vegetable.prix_unitaire%></strong>
+          <strong><%= imp.vegetable.prix_unitaire %></strong>
         </div>
         <div class="col text-center">
-          <span><strong>
-            <%# <% imp.vegetable.prix_unitaire && imp.quantity %>
-              <%= imp.vegetable.prix_unitaire * imp.quantity %>
-            <%# <% else %>
 
+          <span><strong><%= vegetable_price %></strong></span>
 
-          </strong></span>
         </div>
-
       </div>
     <% end %>
   <% end %>
+<% end %>
 
+<div class="row mx-3 garden-item border border-success p-3 mb-1 rounded" style="background-color: rgba(90, 198, 152, 0.1);">
+  <div class="col text-center">
+    <strong>Total</strong>
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col text-center">
+    <strong><%= total_price %>€</strong>
+  </div>
+</div>
 </div>
