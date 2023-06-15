@@ -655,4 +655,10 @@ Synergy.create!(first_vegetable: Vegetable.find_by(name: "Petit pois"), second_v
 Synergy.create!(first_vegetable: Vegetable.find_by(name: "Petit pois"), second_vegetable: Vegetable.find_by(name: "Persil"))
 Synergy.create!(first_vegetable: Vegetable.find_by(name: "Carotte"), second_vegetable: Vegetable.find_by(name: "Persil"))
 
+
+#Rastafari association
+Synergy.create!(first_vegetable: Vegetable.find_by(name: "Tomate"), second_vegetable: Vegetable.find_by(name: "Cannabis"))
+# Synergy.create!(first_vegetable: Vegetable.find_by(name: "Carotte"), second_vegetable: Vegetable.find_by(name: "Persil"))
+
+
 puts "Seeding done!"
