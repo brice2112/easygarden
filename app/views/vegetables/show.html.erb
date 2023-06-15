@@ -1,23 +1,31 @@
   <div class="container">
-    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4 pb-6">
       <div class="form-vegetable">
-        <div class="card-trip">
 
+      <div class="veg-title">
+        <%= cl_image_tag(@vegetable.photo.key) %>
+        <h1><strong><%=@vegetable.name %></strong></h1>
+      </div>
+
+        <div class="container">
+
+
+        <div class="card-trip">
           <div class="row">
             <div class="row justify-content-center">
-              <h2 class="text-center"><strong><%=@vegetable.name %></strong></h2>
             </div>
           </div>
 
             <div class="row mt-3">
               <div class="col-4">
                 <% if @vegetable.photo.attached? %>
-                  <%= cl_image_tag(@vegetable.photo.key, width: 100, height: 100, crop: :fill) %>
                 <% end %>
               </div>
-              <div class="col-8">
+              <div>
                 <p><strong>Famille</strong> : <%= @vegetable.variety %></p>
                 <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
+                <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
+                <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
               </div>
 
               <div class="row mt-3 display-flex">
@@ -26,7 +34,7 @@
                     <p><strong>Description</strong> : </p>
 
                     <p class="truncate description"> <%= @vegetable.description %> </p>
-                    <button class="myButtonVoir">+</button>
+                    <button class="myButtonVoir">...</button>
 
               <script>
                 const clicate = () => {
@@ -74,18 +82,16 @@
                 </div>
               </div>
 
+
             <div class="row">
-                <%= link_to "Retour au jardin", garden_path(), class: "myButtondb" %>
+                <%= link_to "Retour", :back, class: "myButtondb" %>
+
               </div>
             </div>
 
         </div>
       </div>
     </div>
-
-
-
-
-
-        </div>
+    </div>
+  </div>
   </div>
