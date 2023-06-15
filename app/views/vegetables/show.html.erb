@@ -22,8 +22,11 @@
                 <% end %>
               </div>
               <div>
-                <p><strong>Famille</strong> : <%= @vegetable.variety %></p>
+                <p><strong>Famille</strong> : <%= @vegetable.semidate %></p>
+                <p><strong>Période de semi</strong> : <%= @vegetable.recoltedate %></p>
+                <p><strong>Période de récolte</strong> : <%= @vegetable.variety %></p>
                 <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
+                <p><strong>Espacement inter-plants</strong> : <%= @vegetable.espaceplant %></p>
                 <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
                 <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
               </div>
