@@ -13,21 +13,20 @@
         <div class="d-flex">
           <%compartment.each do |veggie| %>
             <% if veggie.to_s != "" %>
-            <% vegetable = Vegetable.find_by(name: veggie)  %>
-            <a href="<%=vegetable_path(vegetable.id)%>" class="container card-veg-small flex-fill">
+              <% vegetable = Vegetable.find_by(name: veggie)  %>
+              <a href="<%=vegetable_path(vegetable.id)%>" class="container card-veg-small flex-fill">
                 <%= cl_image_tag(vegetable.photo.key, width: 80, height: 80) %>
                 <p><%= vegetable.name %></p>
-            </a>
+              </a>
             <% end %>
           <% end %>
         </div>
       </div>
-    <% end %>
+
     <div class="text-center btnContainer">
       <%= button_to "Regénérer", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButton" %>
       <%= button_to "Valider", validate_garden_path(@garden), method: :post, params: {implantation: @implantation, counter: params["counter"]}, class: "myButton" %>
     </div>
   </div>
   <%= link_to "Retour", :back, class: "myButtonCancel" %>
-
 </div>

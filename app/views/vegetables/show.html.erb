@@ -9,49 +9,36 @@
         <h1><strong><%=@vegetable.name %></strong></h1>
       </div>
 
-      <div class="row mt-3">
+        <div class="row mt-3">
 
-        <div class="col-4">
-          <% if @vegetable.photo.attached? %>
-          <% end %>
-        </div>
-
-        <div>
-          <p><strong>Famille</strong> : <%= @vegetable.variety %></p>
-          <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
-          <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
-          <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
-        </div>
-
-        <div class="row mt-3 display-flex">
-
-          <div class="">
-            <p><strong>Description</strong> : </p>
-            <p class="truncate description"> <%= @vegetable.description %> </p>
-            <button class="myButtonVoir">...</button>
-
-            <script>
-              const clicate = () => {
-                const element = document.querySelector(".description");
-                element.classList.toggle("truncate");
-                console.log(element);
-              ;}
-
-              const button = document.querySelector(".myButtonVoir");
-              button.addEventListener("click", clicate);
-            </script>
-
+          <div class="col-4">
+            <% if @vegetable.photo.attached? %>
+            <% end %>
           </div>
 
+          <div>
+            <p><strong>Famille</strong> : <%= @vegetable.semidate %></p>
+            <p><strong>Période de semi</strong> : <%= @vegetable.recoltedate %></p>
+            <p><strong>Période de récolte</strong> : <%= @vegetable.variety %></p>
+            <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
+            <p><strong>Espacement inter-plants</strong> : <%= @vegetable.espaceplant %></p>
+            <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
+            <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
+          </div>
+
+          <div class="row mt-3 display-flex">
+            <div class="">
+              <p><strong>Description</strong> : </p>
+              <p class="truncate description"> <%= @vegetable.description %> </p>
+              <button class="myButtonVoir">...</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <%= link_to "Retour", :back, class: "myButtondb" %>
+          </div>
         </div>
 
-      </div>
-
-      <div class="row">
-        <%= link_to "Retour", :back, class: "myButtondb" %>
-      </div>
-
     </div>
-
   </div>
 </div>
