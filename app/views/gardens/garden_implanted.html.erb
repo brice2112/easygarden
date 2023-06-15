@@ -4,12 +4,12 @@
 
 <div class="container no-padding">
 
-  <p>Voici ce qu'on vous propose de planter:</p>
+  <p><strong>Voici ce qu'on vous propose de planter :</strong></p>
 
   <div class="justify-content-center">
     <% @implantation.each_with_index do |compartment, index| %>
       <div class="container card-comp" id="comp<%= index+1 %>">
-        <p><%= "Compartiment #{index+1}"%></p>
+        <p><%= "Carré de jardin #{index+1}"%></p>
         <div class="d-flex">
           <%compartment.each do |veggie| %>
             <% if veggie.to_s != "" %>
@@ -21,15 +21,13 @@
             <% end %>
           <% end %>
         </div>
+      </div>
     <% end %>
-    <div class="container text-center">
-      <%= button_to "Rafraîchir", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButton" %>
+    <div class="text-center btnContainer">
+      <%= button_to "Regénérer", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButton" %>
       <%= button_to "Valider", validate_garden_path(@garden), method: :post, params: {implantation: @implantation, counter: params["counter"]}, class: "myButton" %>
     </div>
   </div>
-
-  <div class="row">
-    <%= link_to "Retour", :back, class: "myButtondb" %>
-  </div>
+  <%= link_to "Retour", :back, class: "myButtonCancel" %>
 
 </div>
