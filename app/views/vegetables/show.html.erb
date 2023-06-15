@@ -9,19 +9,82 @@
         <h1><strong><%=@vegetable.name %></strong></h1>
       </div>
 
-      <div class="row mt-3">
 
-        <div class="col-4">
-          <% if @vegetable.photo.attached? %>
-          <% end %>
-        </div>
+            <div class="row mt-3">
+              <div class="col-4">
+                <% if @vegetable.photo.attached? %>
+                <% end %>
+              </div>
+              <div>
+                <p><strong>Famille</strong> : <%= @vegetable.semidate %></p>
+                <p><strong>Période de semi</strong> : <%= @vegetable.recoltedate %></p>
+                <p><strong>Période de récolte</strong> : <%= @vegetable.variety %></p>
+                <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
+                <p><strong>Espacement inter-plants</strong> : <%= @vegetable.espaceplant %></p>
+                <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
+                <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
+              </div>
 
-        <div>
-          <p><strong>Famille</strong> : <%= @vegetable.variety %></p>
-          <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
-          <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
-          <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
-        </div>
+              <div class="row mt-3 display-flex">
+                <div class="">
+
+                    <p><strong>Description</strong> : </p>
+
+                    <p class="truncate description"> <%= @vegetable.description %> </p>
+                    <button class="myButtonVoir">...</button>
+
+              <script>
+                const clicate = () => {
+                  const element = document.querySelector(".description");
+                  element.classList.toggle("truncate");
+                  console.log(element);
+                ;}
+
+                const button = document.querySelector(".myButtonVoir");
+                button.addEventListener("click", clicate);
+              </script>
+
+                    <%# <script>
+                    var descriptionElements = document.getElementsByClassName("description");
+                    for (var i = 0; i < descriptionElements.length; i++) {
+                    var descriptionElement = descriptionElements[i];
+                    var text = descriptionElement.textContent;
+
+                      if (text.length > 200) {
+                        descriptionElement.classList.add("truncate");
+                        descriptionElement.textContent = text.substring(0, 200) + "...";
+                      }
+                    }
+                      </script> %>
+                </div>
+
+                  <%# <div class="description">
+                      <button class="collapsed-text">-</button>
+                      <button class="expanded-button">+</button>
+
+                        <script>
+                          var descriptionElement = document.querySelector(".description");
+                          var expandButton = descriptionElement.querySelector(".expand-button");
+                          var collapsedText = descriptionElement.querySelector(".collapsed-text");
+
+                          expandButton.addEventListener("click", function() {
+                            if (collapsedText.style.display === "none") {
+                              collapsedText.style.display = "block";
+                            } else {
+                              collapsedText.style.display = "none";
+                            }
+                          });
+                        </script> %>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="row">
+                <%= link_to "Retour", :back, class: "myButtondb" %>
+
+              </div>
+            </div>
 
         <div class="row mt-3 display-flex">
 
@@ -42,6 +105,7 @@
             </script>
 
           </div>
+
 
         </div>
 
