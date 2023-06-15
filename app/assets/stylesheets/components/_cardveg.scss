@@ -1,18 +1,27 @@
 .cards-garden {
-  // background-color: #5AC698;
-  background: linear-gradient(-45deg, #F4F4F4, #5AC698);
+  background-color: #5AC698;
+  // background: linear-gradient(-45deg, #F4F4F4, #5AC698);
   margin-block: 6px;
   padding-bottom: 12px;
   color: black;
-}
+  border-radius: 0 0 12px 12px;
 
-.cards-garden p {
-  font-size: 20px;
-  opacity: 0.8;
-  line-height: 1;
-  align-items: self-start;
-  margin-bottom: 0;
-  margin-top: 6px;
+  h1{
+    text-transform: capitalize;
+    color: white;
+    margin-bottom: 1.25rem;
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 16px;
+    opacity: 0.7;
+    line-height: 1;
+    // opacity: .7;
+    align-items: self-start;
+    margin-bottom: 0;
+    margin-top: 6px;
+  }
 }
 
 .cards-vege {
@@ -23,12 +32,14 @@
 
 .card-veg {
   // overflow: hidden;
-  height: 80px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  height: 100px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
   display: flex;
-  // background-color: aqua;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  background-position: center;
+  overflow: hidden;
 }
 
 .flex-container {
@@ -38,8 +49,9 @@
 }
 
 .card-veg img {
+  width: 90px;
   object-fit: cover;
-  // border-radius: 8px;
+  height: 100%;
 }
 
 .card-veg h2 {
@@ -58,8 +70,17 @@
 }
 
 .card-veg .card-veg-infos a {
+  // text-decoration: none;
+  // color: rgb(20, 100, 74);
+  // margin: 8px;
+  // padding: 6px 4px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
   text-decoration: none;
-  color: rgb(20, 100, 74);
+  color: #14644a;
   margin: 8px;
 }
 
@@ -78,13 +99,14 @@
 }
 
 .card-veg .card-select {
-  margin-top: 12px;
+  // margin-top: 12px;
   padding: 8px;
-  color: rgb(20, 100, 74);
+  color: #14644a;
   font-weight: 600px;
-  // background-color: rgb(20, 100, 74);
   border-radius: 8px;
+  height: 100%;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
 }
 
