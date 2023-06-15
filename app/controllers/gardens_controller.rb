@@ -242,7 +242,7 @@ class GardensController < ApplicationController
     params.require(:article).permit(:title, :body, :photo)
   end
 
-  
+
 ########### Miscellanous Methods ###########################
 
   # Generate an array of names from a string containing #ids
