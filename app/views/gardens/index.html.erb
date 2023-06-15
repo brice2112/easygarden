@@ -3,16 +3,32 @@
     <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
       <h1 class="text-center mt-4"><strong>Mes jardins</strong></h1>
       <p class="text-center mt-4"><%= current_user.email %></p>
-      <% @gardens.each do |garden| %>
-        <div class="garden-item border border-success p-3 mb-3">
-          <h3 class="mb-0"><strong><%= link_to garden.name, garden_path(garden.id), class: "linksstyle" %></strong></h3>
-          <p class="mb-2"><%= garden.address %></p>
-          <%= button_to "Supprimer", garden_path(garden.id), method: :delete, data: { confirm: "Confirme ton choix" }, class: "myButtondb" %>
-        </div>
-      <% end %>
-      <div class="row">
-        <%= link_to "Créer un jardin", new_garden_path, class: "myButtondb" %>
-        <%= link_to "Se déconnecter", destroy_user_session_path, class: "myButtondb", data: { turbo_method: :delete } %>
+
+      <div class="row px-3">
+        <% if @gardens.empty? %>
+          <p class="text-center mt-6"></p>
+          <p class="text-center mt-6">Vous n'avez pas de jardin pour le moment.</p>
+          <p class="text-center mt-6"></p>
+        <% else %>
+          <% @gardens.each do |garden| %>
+            <div class="garden-item border border-success p-3 mb-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h3 class="mb-0"><strong><%= link_to garden.name, garden_path(garden.id), class: "linksstyle" %></strong></h3>
+                <p class="mb-2"><%= garden.address %></p>
+              </div>
+              <%= link_to garden_path(garden.id), data: { "turbo-method": :delete, confirm: "Confirme ton choix" }, style: "margin-top:5px; margin-bottom:5px; width:25px; height: 25px" do %>
+                <%= image_tag('picto_delete.svg', style: 'height:100%; width:auto;') %>
+              <% end %>
+            </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row px-3">
+        <%= link_to "Créer un jardin", new_garden_path, class: "myButton" %>
+        <%# <%= link_to "Se déconnecter", destroy_user_session_path, class: "myButton", data: { turbo_method: :delete } %>
+
       </div>
     </div>
   </div>

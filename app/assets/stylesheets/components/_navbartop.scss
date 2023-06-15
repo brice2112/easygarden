@@ -5,6 +5,8 @@
   top: 0;
   width: 100%;
   text-align: center;
+  position: fixed;
+  z-index: 3;
 
   .navbar-top .navbar-collapse {
     flex-grow: 0;

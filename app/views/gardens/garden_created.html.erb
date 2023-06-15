@@ -1,13 +1,15 @@
 <% available_veggie = [] %>
 
 <%= render "shared/navbar" %>
-<%= render "shared/gardencard", :locals => { :garden => @garden } %>
+  <%= render "shared/gardencard", locals: { garden: @garden } %>
 
-<div  class="container"
+<div  class="container no-padding"
       data-controller="choose-veggie"
       data-choose-veggie-compartments-count-value="<%= @garden.compartments.count%>">   <%#sending value to JS Controller%>
 
   <%# List of Suitable Vegetables Cards %>
+
+
 
   <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
 
@@ -49,6 +51,7 @@
   <div class="justify-content-center">
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
       <%= form.hidden_field :array_of_veggie, data: { choose_veggie_target: "field"} %>
+      <%= link_to "Retour", :back, class: "myButtonCancel" %>
       <%= form.submit "Suivant", class: "myButton", disabled: true, data: { choose_veggie_target: "nextButton"} %>
     <% end %>
   </div>

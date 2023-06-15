@@ -1,20 +1,14 @@
-  <div class="container">
-    <div class="col col-xs-12 col-sm-4 col-sm-offset-4 pb-6">
-      <div class="form-vegetable">
+<div class="container">
+
+  <div class="col col-xs-12 col-sm-4 col-sm-offset-4 pb-6">
+
+    <div class="form-vegetable">
 
       <div class="veg-title">
         <%= cl_image_tag(@vegetable.photo.key) %>
         <h1><strong><%=@vegetable.name %></strong></h1>
       </div>
 
-        <div class="container">
-
-
-        <div class="card-trip">
-          <div class="row">
-            <div class="row justify-content-center">
-            </div>
-          </div>
 
             <div class="row mt-3">
               <div class="col-4">
@@ -92,9 +86,36 @@
               </div>
             </div>
 
+        <div class="row mt-3 display-flex">
+
+          <div class="">
+            <p><strong>Description</strong> : </p>
+            <p class="truncate description"> <%= @vegetable.description %> </p>
+            <button class="myButtonVoir">...</button>
+
+            <script>
+              const clicate = () => {
+                const element = document.querySelector(".description");
+                element.classList.toggle("truncate");
+                console.log(element);
+              ;}
+
+              const button = document.querySelector(".myButtonVoir");
+              button.addEventListener("click", clicate);
+            </script>
+
+          </div>
+
+
         </div>
+
       </div>
+
+      <div class="row">
+        <%= link_to "Retour", :back, class: "myButtondb" %>
+      </div>
+
     </div>
-    </div>
+
   </div>
-  </div>
+</div>

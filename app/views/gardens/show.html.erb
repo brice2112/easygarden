@@ -1,6 +1,10 @@
 <div class="container">
+
+
   <%= render "shared/gardencard", :locals => { :garden => @garden } %>
-  <h2 class="text-center mt-4" style="margin-bottom: -30px;"><strong>Mon plan d'implantation</strong></h2>
+
+  <h2 class="text-left mt-4" style="margin-bottom: -30px; margin-left: 14px;"><strong>Mon plan d'implantation</strong></h2>
+
   <div class="plan" style="background-image: url('<%= asset_path('grass2.jpg') %>')">
     <% @garden.compartments.each_with_index do |comp, c| %>
       <div class="compartment" style="background-image: url('<%= asset_path('terre.jpg') %>');">
@@ -19,6 +23,7 @@
       </div>
     <% end %>
   </div>
+
 
   <h3 class="text-center mt-4"><strong>Ma liste de courses</strong></h3>
 
@@ -48,9 +53,11 @@
 
           </strong></span>
         </div>
+
       </div>
     <% end %>
   <% end %>
 
 </div>
+
 <%= render "shared/navbar" %>
