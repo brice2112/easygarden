@@ -1,3 +1,5 @@
+<%= render "shared/navbar" %>
+
 <div class="container">
 
   <div class="col col-xs-12 col-sm-4 col-sm-offset-4 pb-6">
@@ -16,28 +18,25 @@
             <% end %>
           </div>
 
-          <div>
-            <p><strong>Famille</strong> : <%= @vegetable.semidate %></p>
-            <p><strong>Période de semi</strong> : <%= @vegetable.recoltedate %></p>
-            <p><strong>Période de récolte</strong> : <%= @vegetable.variety %></p>
+          <div class="px-3 mx-2">
+            <p><strong>Famille</strong> : <%= @vegetable.variety %></p>
+            <p><strong>Période de semis</strong> : <%= @vegetable.recoltedate %></p>
+            <p><strong>Période de récolte</strong> : <%= @vegetable.semidate %></p>
             <p><strong>Emprise au sol</strong> : <%= @vegetable.footprint %> m²</p>
             <p><strong>Espacement inter-plants</strong> : <%= @vegetable.espaceplant %></p>
             <p><strong>Température min</strong> : <%= @vegetable.min_temp %> m²</p>
             <p><strong>Température max</strong> : <%= @vegetable.max_temp %> m²</p>
           </div>
 
-          <div class="row mt-3 display-flex">
-            <div class="">
+          <div class="row mt-3 display-flex px-3">
+            <div class="mx-2 my-3">
               <p><strong>Description</strong> : </p>
-              <p class="truncate description"> <%= @vegetable.description %> </p>
-              <button class="myButtonVoir">...</button>
+              <p> <%= @vegetable.description %> </p>
+              <%# <button class="myButtonVoir">...</button> %>
+              <%= link_to "Retour", :back, class: "myButtonCancel" %>
             </div>
           </div>
 
-          <div class="row">
-            <%= link_to "Retour", :back, class: "myButtondb" %>
-          </div>
-        </div>
 
     </div>
   </div>
