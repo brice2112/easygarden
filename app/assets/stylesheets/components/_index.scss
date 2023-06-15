@@ -13,16 +13,19 @@
 @import "scroll";
 
 @import "address_autocomplete";
+@import "buttonnext";
 
 
 
 .container {
   margin-bottom: 60px;
+  padding-top: 5rem;
+  &.no-padding {
+    padding-top: 0;
+  }
 }
 
 a {
   color: black;
   text-decoration: none;
 }
-
-

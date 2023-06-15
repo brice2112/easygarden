@@ -2,7 +2,7 @@
 
 <%= render "shared/gardencard", :locals => { :garden => @garden } %>
 
-<div class="container">
+<div class="container no-padding">
 
   <p>Voici ce qu'on vous propose de planter:</p>
 
@@ -21,7 +21,7 @@
             <% end %>
           <% end %>
         </div>
-      </div>
+      <% end %>
     <% end %>
     <div class="container text-center">
       <%= button_to "Rafraîchir", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButton" %>
