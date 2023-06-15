@@ -100,21 +100,19 @@ background-color:#5AC698;
 
     .myButtondb {
       background-color:#5AC698;
-        border-radius:30px;
-        border:1px solid #00B6A1;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family: 'Roboto', sans-serif;
-        font-size:16px;
-        font-weight: bold;
-        padding:5px 10px;
-        text-decoration:none;
-        text-align: center;
-        margin-top: 20px;
-        // margin-left: 10px;
-        // margin-right: 10px;
-
+      border-radius:30px;
+      border:1px solid #00B6A1;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family: 'Roboto', sans-serif;
+      font-size:16px;
+      font-weight: bold;
+      padding:8px 24px;
+      text-decoration:none;
+      text-align: center;
+      margin-top: 20px;
+      width: 100%;
       }
       .myButtondb:hover {
         background-color: #00B6A1;

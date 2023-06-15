@@ -4,7 +4,9 @@
 
 <div class="container no-padding">
 
-  <p>Voici ce qu'on vous propose de planter :</p>
+
+  <p><strong>Voici ce qu'on vous propose de planter :</strong></p>
+
 
   <div class="justify-content-center">
     <% @implantation.each_with_index do |compartment, index| %>
@@ -22,12 +24,12 @@
           <% end %>
         </div>
       </div>
-    <% end %>
 
-    <div class="container text-center">
-      <%= button_to "Regénérer", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButtonCancel" %>
+
+    <div class="text-center btnContainer">
+      <%= button_to "Regénérer", implant_path(@garden, array_of_veggie: params[:array_of_veggie]), method: :post, class: "myButton" %>
       <%= button_to "Valider", validate_garden_path(@garden), method: :post, params: {implantation: @implantation, counter: params["counter"]}, class: "myButton" %>
     </div>
   </div>
-
+  <%= link_to "Retour", :back, class: "myButtonCancel" %>
 </div>
