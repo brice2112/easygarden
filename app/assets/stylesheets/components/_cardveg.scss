@@ -175,11 +175,11 @@
     min-width: 100%;
     min-height: 100%,;
     object-fit: cover;
-    opacity: 0.6;
-    background-color: black;
+    opacity: 0.5;
+    background-color: #222222;
   }
 
-  .card-veg-small a {
+  .card-veg-small p {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -188,4 +188,9 @@
     color:white;
     font-size: 24px;
     font-weight: 600;
+    background-color: transparent;
+  }
+
+  .card-veg-small:active {
+    background-color: white;
   }
