@@ -51,8 +51,8 @@
   <div class="justify-content-center">
     <%= form_with url: implant_path(@garden), class: "container text-center"  do |form|%>
       <%= form.hidden_field :array_of_veggie, data: { choose_veggie_target: "field"} %>
-      <%= link_to "Retour", :back, class: "myButtonCancel" %>
       <%= form.submit "Suivant", class: "myButton", disabled: true, data: { choose_veggie_target: "nextButton"} %>
+      <%= link_to "Retour", :back, class: "myButtonCancel" %>
     <% end %>
   </div>
 </div>
