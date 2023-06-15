@@ -12,11 +12,15 @@
         <% else %>
           <% @gardens.each do |garden| %>
             <div class="garden-item border border-success p-3 mb-3">
-              <h3 class="mb-0"><strong><%= link_to garden.name, garden_path(garden.id), class: "linksstyle" %></strong></h3>
-              <p class="mb-2"><%= garden.address %></p>
-              <%= button_to garden_path(garden.id), method: :delete, data: { confirm: "Confirme ton choix" } do %>
-              <%= image_tag('picto_delete.svg', style: 'height:100%; width:24px;') %>
-          <% end %>
+            <div class="d-flex justify-content-between">
+              <div>
+                <h3 class="mb-0"><strong><%= link_to garden.name, garden_path(garden.id), class: "linksstyle" %></strong></h3>
+                <p class="mb-2"><%= garden.address %></p>
+              </div>
+              <%= link_to garden_path(garden.id), data: { "turbo-method": :delete, confirm: "Confirme ton choix" }, style: "margin-top:5px; margin-bottom:5px; width:25px; height: 25px" do %>
+                <%= image_tag('picto_delete.svg', style: 'height:100%; width:auto;') %>
+              <% end %>
+            </div>
             </div>
           <% end %>
         <% end %>
