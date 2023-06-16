@@ -11,7 +11,11 @@
 
 
 
-  <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
+  <% if @garden.compartments.count == 1 %>
+    <p>Voici la liste des légumes adaptés à votre climat. Choisissez votre légume favori :</p>
+  <% else %>
+    <p>Voici la liste des légumes adaptés à votre climat. Choisissez vos <%= @garden.compartments.count %> légumes favoris :</p>
+  <% end %>
 
   <div class="cards-vege">
     <% @suitable_vegetables.each do |veg| %>
