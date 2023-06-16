@@ -6,7 +6,7 @@ require 'awesome_print'
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :destroy, :garden_created, :implant, :garden_implanted, :set_vegetables_for_weather, :validate]
   before_action :set_vegetables_for_weather, only: [:implant]
-  COMP_W = 0.5
+  COMP_W = 1.2
   IMP_L = 1
   ALLEY_W = 0.3
 
@@ -64,6 +64,9 @@ class GardensController < ApplicationController
     mean_temp = get_mean_temp(gps_coords[0], gps_coords[1])
     @garden.update(mean_temperature: mean_temp)
     @suitable_vegetables = set_vegetables_for_weather
+
+    # Excluding cannabis for demo day joke
+    @suitable_vegetables = @suitable_vegetables.excluding(Vegetable.find_by_name("Cannabis"))
   end
 
   def implant

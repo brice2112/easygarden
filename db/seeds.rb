@@ -370,18 +370,18 @@ vegetable = Vegetable.new(
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 0.023,
+  footprint: 0.047,
   semidate: "Avril à Juin",
   recoltedate: "Mais à Octobre",
-  espaceplant: 0.3,
-  prix_unitaire: 0.01,
+  espaceplant: 0.6,
+  prix_unitaire: 0.25,
   semitype: "graine",
   description: "Le basilic est une herbe aromatique populaire, largement utilisée dans la cuisine méditerranéenne et asiatique. Il est apprécié pour son arôme distinctif et son goût légèrement sucré avec des notes de clou de girofle et de poivre. Le basilic est une source de vitamines A, K et C, ainsi que de minéraux tels que le potassium et le calcium. Il est souvent utilisé frais dans les salades, les sauces, les pestos et les plats de pâtes. Le basilic est également un ingrédient clé dans la préparation du célèbre plat italien, la caprese. Son parfum et sa saveur ajoutent une touche de fraîcheur et d'intensité à de nombreux plats. Le basilic est une herbe polyvalente et appréciée pour ses qualités gustatives et aromatiques uniques."
 )
 file = URI.open('https://res.cloudinary.com/dasx2arbl/image/upload/v1686312323/basilic_a3bbol.jpg')
 vegetable.photo.attach(io: file, filename: "veg.jpg", content_type: "image/png")
 vegetable.save
-
+  
 vegetable = Vegetable.new(
   name: "Oignon",
   variety: "Liliacées",
@@ -430,10 +430,10 @@ vegetable = Vegetable.new(
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 1.456,
+  footprint: 0.656,
   semidate: "Mars à Juin",
   recoltedate: "Octobre à Fevrier",
-  espaceplant: 4,
+  espaceplant: 4.5,
   prix_unitaire: 20,
   semitype: "Plant",
   description: "Le citron est un agrume jaune vif et acide, caractérisé par son goût frais et acidulé. Il est largement utilisé en cuisine et en boisson pour sa saveur distinctive. Le citron est une excellente source de vitamine C, d'antioxydants et de minéraux tels que le potassium. Son jus est souvent utilisé comme assaisonnement ou pour rehausser la saveur des plats, des salades, des boissons et des desserts. Le zeste de citron est également utilisé pour ajouter une touche d'arôme et de parfum. Le citron est apprécié pour sa capacité à apporter de la fraîcheur, de l'acidité et une note citrique aux préparations culinaires."
@@ -450,10 +450,10 @@ vegetable = Vegetable.new(
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 1.621,
+  footprint: 0.621,
   semidate: "Mars à Juin",
   recoltedate: "Octobre à Fevrier",
-  espaceplant: 4,
+  espaceplant: 2.3,
   prix_unitaire: 20,
   semitype: "Plant",
   description: "L'avocat est un fruit à la peau verte et à la chair crémeuse, largement apprécié pour sa texture lisse et son goût délicat. Il est riche en graisses saines, en fibres alimentaires et en vitamines, notamment la vitamine K, la vitamine C, la vitamine E et les vitamines du groupe B. L'avocat est souvent considéré comme un super aliment en raison de sa teneur en nutriments bénéfiques pour la santé. Il est utilisé dans de nombreuses préparations culinaires, telles que les salades, les guacamoles, les sandwichs, les sushis et les smoothies. L'avocat ajoute une texture crémeuse et un goût doux aux plats, tout en apportant des bienfaits nutritionnels. C'est un fruit polyvalent et nutritif apprécié dans le monde entier."
@@ -473,7 +473,7 @@ vegetable = Vegetable.new(
   footprint: 2.462,
   semidate: "Mars à Juin",
   recoltedate: "Octobre à Fevrier",
-  espaceplant: 4,
+  espaceplant: 2.5,
   prix_unitaire: 20,
   semitype: "Plant",
   description: "La banane est un fruit en forme de courbe, généralement jaune à maturité, et doté d'une chair douce et crémeuse. Elle est connue pour sa saveur sucrée et sa texture agréable. La banane est une excellente source de nutriments, tels que les vitamines C et B6, le potassium, les fibres et les antioxydants. Elle est souvent consommée crue et peut être utilisée dans de nombreuses préparations culinaires, notamment les smoothies, les salades de fruits, les desserts et les pains. La banane est appréciée pour son goût naturellement sucré, sa facilité à être transportée et sa capacité à fournir une énergie rapide. C'est un fruit polyvalent et populaire dans le monde entier."
@@ -485,15 +485,15 @@ vegetable.save
 vegetable = Vegetable.new(
   name: "Mangue",
   variety: "Anacardiacées",
-  min_temp: 29,
+  min_temp: 23,
   max_temp: 46,
   atmospheric_humidity: 50,
   minimum_precipitation: '',
   maximum_precipitation: '',
-  footprint: 2.178,
+  footprint: 0.778,
   semidate: "Mars à Juin",
   recoltedate: "Octobre à Fevrier",
-  espaceplant: 4,
+  espaceplant: 5,
   prix_unitaire: 20,
   semitype: "Plant",
   description: "La mangue est un fruit tropical à la peau lisse et à la chair juteuse et sucrée. Elle est appréciée pour sa saveur exotique et son parfum sucré et floral. La mangue est riche en vitamines C et A, en fibres et en antioxydants. Elle est souvent consommée crue et peut également être utilisée dans une variété de plats sucrés et salés, tels que les salades, les smoothies, les sauces, les glaces et les desserts. La texture de la mangue est douce et fondante, ce qui en fait un fruit délicieux et rafraîchissant à déguster. La mangue est très appréciée dans les régions tropicales et elle est également exportée dans le monde entier."
@@ -568,6 +568,11 @@ Synergy.create!(
 Synergy.create!(
   first_vegetable: Vegetable.find_by(name: "Avocat"),
   second_vegetable: Vegetable.find_by(name: "Banane")
+)
+
+Synergy.create!(
+  first_vegetable: Vegetable.find_by(name: "Banane"),
+  second_vegetable: Vegetable.find_by(name: "Mangue")
 )
 
 #fake-brassicasseae
